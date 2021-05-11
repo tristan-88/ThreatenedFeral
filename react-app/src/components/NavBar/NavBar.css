@@ -1,0 +1,14 @@
+.nav-container{
+    /* width: 100% */
+}
+
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-elements-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

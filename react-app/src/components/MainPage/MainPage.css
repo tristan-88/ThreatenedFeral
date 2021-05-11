@@ -1,0 +1,113 @@
+/* .animal-image{
+    width: 500px;
+    height: 400px;
+    border-color:transparent;
+ 
+}
+
+.animal-card-container{
+    box-shadow: 0 17px 9px -7px rgba(12, 12, 12, 0.35);
+    width: max-content;
+    display: inline-block;
+    margin: 30px; 
+   
+}
+
+
+.animal-card-container
+{
+	/* top: 100%;
+	left: 50%; */
+	/* transform: translate(-50%, -50%); */
+	/* position: absolute; */
+/* } */
+
+.main-page-container{
+   display:inline-block;
+   text-align: -webkit-center;
+}
+
+.page-title{
+    font-weight: bolder;
+    font-size: xx-large;
+    font-family: fantasy;
+    color: white;
+    text-shadow: -1px 3px 3px black,
+				  3px 3px 3px black,
+				  3px -1px 0  black,
+				  -1px -1px 0  black; 
+    padding: 10px;
+}
+
+.animal-card-container
+{
+	width: 500px;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+    display:inline-block;
+    margin: 30px;
+    
+}
+
+.animal-card-container:before
+{
+	position: absolute;
+	top: 0;
+	left: 180%;
+	height: 500px;
+	width: 400px;
+	background: rgba(255,255,255,.3);
+	z-index: 1;
+	transform: skew(45deg);
+	transition: .5s;
+}
+
+.animal-card-container:hover:before
+{
+	left: -180%;
+}
+
+.animal-card-container .animal-image
+{
+	height: 300px;
+	width: 100%;
+	filter: grayscale(100%);
+	transition: 2s;
+     box-shadow: 2px 17px 9px -7px rgba(12, 12, 12, 0.35);
+   
+}
+.animal-card-container:hover .animal-image
+{
+	filter: grayscale(0%);
+	transform: scale(1.1);
+    transition: 2s;
+    box-shadow: none;
+}
+
+
+.animal-name{
+    font-weight: bolder;
+    font-size: x-large;
+     font-family: fantasy;
+    color: white;
+    text-shadow: -1px 3px 3px black,
+				  3px 3px 3px black,
+				  3px -1px 0  black,
+				  -1px -1px 0  black; 
+
+   
+    margin: 20px;
+    text-decoration: none;
+    
+    
+}
+
+.animal-name:focus, :hover, :visited, :link, :active {
+        text-decoration: none;
+    }
+
+.active{
+    text-decoration: none;
+    color: white;
+}
