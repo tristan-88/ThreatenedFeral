@@ -7,6 +7,7 @@ import { Client } from "@googlemaps/google-maps-services-js";
 import direction from "google-maps-direction"
 
 
+const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY
 const client = new Client({})
 const search = "National Zoo"
 
@@ -27,7 +28,7 @@ const MapComponent = () => {
 
     const { isLoaded } = useJsApiLoader({
         id: "google-map-script",
-        googleMapsApiKey: process.env.REACT_APP_API_KEY,
+        googleMapsApiKey: REACT_APP_API_KEY,
     });
     const mapStyles = {
         height: "500px",
@@ -44,7 +45,7 @@ const MapComponent = () => {
 			.geocode({
 				params: {
 					address:"3001 Connecticut Ave NW, Washington, DC 20008",
-					key: process.env.REACT_APP_API_KEY,
+					key: REACT_APP_API_KEY,
 				},
 			})
 			.then((r) => {
@@ -57,7 +58,7 @@ const MapComponent = () => {
             });
     
     //grabs the long and lng of th place I put in string you search for 
-    Geocode.setApiKey(process.env.REACT_APP_API_KEY)
+    Geocode.setApiKey(REACT_APP_API_KEY)
     Geocode.setLanguage('en')
     Geocode.setLocationType("ROOFTOP");
     Geocode.enableDebug();
