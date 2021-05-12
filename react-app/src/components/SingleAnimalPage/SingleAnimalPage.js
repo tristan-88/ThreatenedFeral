@@ -6,13 +6,13 @@ import { getAnimals, singleAnimal} from '../../store/animal'
 import MapComponent from '../MapComponent/MapComponent'
 import ReactAudioPlayer from 'react-audio-player'
 import CarouselComponent from '../Carousel/Carousel'
-
+import './SingleAnimalPage.css'
 
 function SingleAnimalPage() {
     const { id } = useParams()
       const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-    
+
 			useEffect(() => {
 				if (sessionUser) {
                     dispatch(getAnimals());
