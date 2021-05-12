@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector} from "react-redux"
-import { NavLink, useParams, } from "react-router-dom"
+import { NavLink, useParams, Link } from "react-router-dom"
 import { useHistory } from 'react-router'
 import { getAnimals, singleAnimal} from '../../store/animal'
 import MapComponent from '../MapComponent/MapComponent'
@@ -12,7 +12,7 @@ function SingleAnimalPage() {
     const { id } = useParams()
       const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-
+    
 			useEffect(() => {
 				if (sessionUser) {
                     dispatch(getAnimals());
@@ -26,22 +26,27 @@ function SingleAnimalPage() {
         return null
     }        
     return (
-			<>
-				<CarouselComponent photos={animal.photos} />
-				<ReactAudioPlayer
-                src="cd.textfiles.com/mmplus/MEDIA/WAV/EFFECTS/ANIMALS/TIGER.WAV"
-                autoPlay="true"
-                controls="true"
-				/>
-				<div>{animal.name}</div>
-				<div>{animal.description}</div>
-				<div>{animal.fact_1}</div>
-				<div>{animal.fact_2}</div>
-				<div>{animal.fact_3}</div>
-				<div>{animal.fact_4}</div>
-				<div>{animal.fact_5}</div>
-				<div>{animal.fact_6}</div>
-				<div>{animal.threats}</div>
+			<div className="single-page-container">
+				<div className="current_name">{animal.name}</div>
+				<CarouselComponent photos={animal.photos} className="photos-carousel" />
+				<div className="audio-play-container">
+					Here me:
+					<ReactAudioPlayer
+						src={animal.call_cry}
+						// autoPlay="true"
+						controls="true"
+						className="audio-player"
+					/>
+				</div>
+
+				<div className="animal-description">{animal.description}</div>
+				<div className="animal-status">{animal.fact_1}</div>
+				<div className="animal-weight">{animal.fact_2}</div>
+				<div className="animal-science-name">{animal.fact_3}</div>
+				<div className="animal-size">{animal.fact_4}</div>
+				<div className="animal-habitat">{animal.fact_5}</div>
+				<div className="animal-population">{animal.fact_6}</div>
+				<div className="animal-threats">{animal.threats}</div>
 
 				{animal.locations.map((location) => (
 					<div>
@@ -52,7 +57,36 @@ function SingleAnimalPage() {
 					</div>
 				))}
 				<MapComponent className="map-component" />
-			</>
+				<div className="non-profit_container">
+					NON-PROFIT ORGANIZATIONS
+					{animal.org.map((org) => (
+						<div className="org-name-link">
+							<a href={org.non_profit_link} className="org-link">
+								{org.non_profit_name}
+							</a>
+						</div>
+					))}
+				</div>
+				<div className="educator-container">
+					EDUCATORS
+					{animal.educator.map((edu) => (
+						<div className="edu-name-link">
+							<a href={edu.content_link} className="edu-link">
+								{edu.educator_name}
+							</a>
+						</div>
+					))}
+				</div>
+				<div className="comments-container">
+					COMMENTS
+					{animal.comment.map((comment) => (
+						<div className="single-comment">
+							<div className="user-name">User:{comment.user[0].username}</div>
+							<div className="comment-content">Comment:{comment.content}</div>
+						</div>
+					))}
+				</div>
+			</div>
 		);
 }
 

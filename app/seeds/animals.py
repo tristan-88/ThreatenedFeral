@@ -27,7 +27,7 @@ def seed_animals():
          fact_5="Habitats: Tropical rainforests, evergreen forests, temperate forests, mangrove swamps, grasslands, and savannas",
          fact_6="Population: Around 3,900",
          threats= '''Tigers have lost an estimated 95% of their historical range. Their habitat has been destroyed, degraded, and fragmented by human activities. The clearing of forests for agriculture and timber, as well as the building of road networks and other development activities, pose serious threats to tiger habitats. Tigers need wide swaths of habitat for their survival since they have large home ranges and are very territorial. Fewer tigers can survive in small, scattered islands of habitat, which leads to a higher risk of inbreeding and makes tigers more vulnerable to poaching as they venture beyond protected areas to establish their territories. This underscores the need to ensure habitat connectivity between the protected areas where tigers live. People and tigers increasingly compete for space. As forests shrink and prey becomes scarce, tigers are forced to leave protected areas in search of food and to establish territories. This takes them into human-dominated areas that lie between habitat fragments, where they can hunt domestic livestock that many local communities depend on for their livelihood. In retaliation, tigers are sometimes killed or captured. “Conflict” tigers can end up for sale in black markets. Local community dependence on forests for fuel wood, food, and timber heightens the risk of tiger attacks on people. One of the world’s largest, and most uniquely-adapted, tiger populations are found in the Sundarbans—a large mangrove forest area shared by India and Bangladesh on the coast of the Indian Ocean. It is also the only coastal mangrove tiger habitat in the world. These mangrove forests harbor a variety of species, including tigers, and protect coastal regions from storm surges and wind damage. However, rising sea levels caused by climate change threaten to wipe out these forests and the last remaining habitat of this tiger population. The current scale of commercial captive breeding efforts within these farms is a significant obstacle to the recovery and protection of wild tiger populations because they perpetuate the demand for tiger products, serve as a cover for illegal trade and undermine enforcement efforts. WWF is engaging with governments in countries with active tiger farms, and advocates ending breeding and phasing out the farms. WWF also advocates for improved regulation of the captive tiger population in the US. It is estimated that approximately 5,000 tigers reside in the US, and we must ensure that these animals are not exploited by, or contributing to, the illegal trade in tigers and their parts.''',
-         call_cry="cd.textfiles.com/mmplus/MEDIA/WAV/EFFECTS/ANIMALS/TIGER.WAV"
+         call_cry="https://freeanimalsounds.org/wp-content/uploads/2017/07/Tiger.mp3"
      )
      
      db.session.add(animal_1)
@@ -78,7 +78,7 @@ def seed_animals():
                 Offshore petroleum installations and operations in the Arctic are expected to increase in number. This expansion would likely affect polar bears and their habitat in many ways, including the following: Reducing the insulation of polar bear fur from spilled oil.
                 Poisoning from ingesting oil and eating contaminated prey.
                 Disturbance. Destruction of habitat. Impacts on entire food webs. Oil spreading to areas outside of the Arctic Increased Arctic shipping represents a risk to polar bears. As traffic by barges, oil tankers, and cargo ships in Arctic waters increases, so do the risk of oil spills and human disturbance to polar bears. As Arctic sea ice thins and retreats, increasing numbers of polar bears are spending longer periods in the summer open-water season along Arctic coastlines. Here, their powerful sense of smell attracts them to human communities: garbage, stored food, dog teams, and animal carcasses bring them into greater conflict with Arctic people. As powerful predators, polar bears pose a major risk to human life and property. Throughout the polar bear's range, attacks on humans and property continue to rise. In recent years, more than 20 direct attacks on humans have been reported within the polar bear's range.''',
-         call_cry='www.asahi-net.or.jp/~kw6a-tnb/sound/pbear.wav'
+         call_cry='http://www.bigcypressswamp.com/Sounds/beargrowl.wav'
      )
      
      db.session.add(animal_3)
@@ -116,7 +116,7 @@ def seed_animals():
             Like other large whales, blue whales are threatened by environmental change including habitat loss and toxics. Blue whales can also be harmed by ship strikes and by becoming entangled in fishing gear. Although commercial whaling no longer represents a threat, climate change and its impact on krill (shrimp-like crustaceans), blue whales' major prey, makes this cetacean particularly vulnerable.Despite a moratorium on commercial whaling and a ban on international trade of whale products, three countries—Iceland, Japan, and Norway—continue their commercial whale hunts. Over 1,000 whales a year are killed for such commercial purposes. The blue whale, the largest animal ever known to have existed, was almost exterminated in the 20th century due to commercial whaling.''',
          call_cry='https://cdn.britannica.com/11/128511-005-946AE779/Call-blue-whale-waters-Vancouver-Island-British.mp3'
      )
-     
+    #  http://dobieaquaticscience.weebly.com/uploads/2/4/8/1/24814097/sound_9.mp3
      db.session.add(animal_5)
      db.session.commit()
      
@@ -131,7 +131,7 @@ def seed_animals():
          fact_5="Habitats:Oceans",
          fact_6="Population: Unknown ",
          threats= '''Great white sharks are decreasing in numbers and are rare due to years of being hunted by man for fins and teeth, and often as a trophy for sport fishing. The white shark is often caught as bycatch by commercial fisheries and can also become entangled in meshes that protect beaches.''',
-         call_cry='www.noiseforfun.com/waves/creature-and-animals/NFF-shark-bite.wav'
+         call_cry='http://www.noiseforfun.com/waves/creature-and-animals/NFF-shark-bite.wav'
      )
      
      db.session.add(animal_6)
