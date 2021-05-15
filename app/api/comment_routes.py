@@ -48,4 +48,19 @@ def edit_comment():
     comment = Comment.query.get(comment_id)
     comment.content = new_content
     db.session.commit()
-    return comment.to_dict()
+    return {'comment':comment.to_dict()}
+
+@comment_routes.route('/', methods= ['POST'])
+def post_comment():
+    new_content = request.json['content']
+    current_animal_id  = request.json['animalId']
+    if not new_content:
+        return {"message": "Content Required"}, 401
+    comment = Comment(
+        user_id = current_user.id,
+        animal_id = current_animal_id,
+        content = new_content
+    )
+    db.session.add(comment)
+    db.session.commit()
+    return {'comment':comment.to_dict()}

@@ -2,11 +2,13 @@ import {createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from 'redux-thunk';
 import session from './session'
 import animal from './animal'
+import editForm from './editForm'
 
 
 const rootReducer = combineReducers({
     session,
     animal,
+    editForm, //corresponds to the slice of state
 });
 
 let enhancer;

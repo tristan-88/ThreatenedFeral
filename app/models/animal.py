@@ -38,7 +38,7 @@ class Animal(db.Model):
             "call_cry": self.call_cry,
             "photos": [photo.to_dict() for photo in self.animal_photo],
             "locations": [location.animal_location.to_dict() for location in self.animal_loc],
-            "comment": [comment.to_dict() for comment in self.animal_comment],
+            "comment": {comment.id: comment.to_dict() for comment in self.animal_comment},
             "educator": [educator.animal_educator.to_dict() for educator in self.animal_educator],
             "org":[org.to_dict() for org in self.animal_non_profit_org] #direct many to many association attribute creation
         }

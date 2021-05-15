@@ -17,4 +17,3 @@ class Comment(db.Model):
             "animal_id": self.animal_id,
             "user": self.comment_user.to_dict()
          }
-         

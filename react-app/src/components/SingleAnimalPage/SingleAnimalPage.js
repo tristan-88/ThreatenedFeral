@@ -2,29 +2,49 @@ import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector} from "react-redux"
 import { NavLink, useParams, Link } from "react-router-dom"
 import { useHistory } from 'react-router'
-import { getAnimals, singleAnimal} from '../../store/animal'
+import { getAnimals, singleAnimal, deletingComment } from '../../store/animal'
+import {showForm, hideForm} from '../../store/editForm'
 import MapComponent from '../MapComponent/MapComponent'
 import ReactAudioPlayer from 'react-audio-player'
 import CarouselComponent from '../Carousel/Carousel'
 import './SingleAnimalPage.css'
+import EditCommentForm from '../CommentForm/EditCommentForm'
+import CommentForm from '../CommentForm/CommentForm'
 
 function SingleAnimalPage() {
     const { id } = useParams()
-      const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
+	const dispatch = useDispatch();
+	const sessionUser = useSelector((state) => state.session.user);
+	const editFormStatus = useSelector((state) => state.editForm.showEditForm)
+	const [render, setRender] = useState(true)
 
-			useEffect(() => {
+
+	const handleEdit = (comment) => {
+		dispatch(showForm())
+	}
+
+	const handleBack = () => {
+		dispatch(hideForm())
+	}
+
+	const handleDelete = async (comment) => {
+		setRender(true)
+		await dispatch(deletingComment(comment.id))
+		setRender(false)
+	}
+	
+	const animals = useSelector((state) => state.animal.animals);
+	const animal = useSelector((state) => state.animal?.currentAnimal)
+	useEffect(() => {
 				if (sessionUser) {
                     dispatch(getAnimals());
-                    dispatch(singleAnimal(id))
-				}
+					dispatch(singleAnimal(id))
+		}
 			}, [dispatch]);
+	
+			
+	if (!animal) return null;
 
-    const animals = useSelector((state) => state.animal.animals);
-    const animal = useSelector((state)=> state.animal.currentAnimal)
-    if (!animal) {
-        return null
-    }        
     return (
 			<div className="single-page-container">
 				<div className="current_name">{animal.name}</div>
@@ -77,12 +97,29 @@ function SingleAnimalPage() {
 						</div>
 					))}
 				</div>
-				<div className="comments-container">
+			<div className="comments-container">
+				<CommentForm animalId={animal.id} />
 					COMMENTS
-					{animal.comment.map((comment) => (
+					{Object.values(animal.comment).map((comment) => (
 						<div className="single-comment">
 							<div className="user-name">User:{comment.user.username}</div>
 							<div className="comment-content">Comment:{comment.content}</div>
+							{comment.user.id === sessionUser.id && (
+								<>
+									<button
+										onClick={(() => handleEdit(comment))}
+									>
+										Edit
+									</button>
+									<button onClick={() => handleDelete(comment)}>Delete</button>
+									{editFormStatus &&
+										<>
+										<EditCommentForm comment={comment} /> {/* put it in props to be able to pass the current value in the form and then to the initial useState */}
+										<button onClick={handleBack}>Go Back</button>
+										</>
+									}
+								</>
+							)}
 						</div>
 					))}
 				</div>
