@@ -134,16 +134,34 @@ const SignUpForm = () => {
 				<input
 					type="text"
 					name="zipcode"
-          onChange={updateZipCode}
+					onChange={updateZipCode}
 					value={zipcode}
 				></input>
 			</div>
 			<div>
 				<label>Avatar</label>
 				<div className="radio-avatar_url">
-					<input type="radio" value="Blue Whale" name="avatar" /> Blue Whale
-					<input type="radio" value="Panda" name="avatar" /> Panda
-					<input type="radio" value="Tiger" name="avatar" /> Tiger
+					<input
+						type="radio"
+						value="Blue Whale"
+						name="avatar"
+						onChange={(value) => pickAvatar(value)}
+					/>{" "}
+					Blue Whale
+					<input
+						type="radio"
+						value="Panda"
+						name="avatar"
+						onChange={(value) => pickAvatar(value)}
+					/>{" "}
+					Panda
+					<input
+						type="radio"
+						value="Tiger"
+						name="avatar"
+						onChange={(value) => pickAvatar(value)}
+					/>{" "}
+					Tiger
 				</div>
 			</div>
 			<button type="submit">Sign Up</button>

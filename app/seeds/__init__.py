@@ -5,7 +5,6 @@ from .photos import seed_photos, undo_photos
 from .locations import seed_locations, undo_locations
 from .animal_locations import seed_animal_locations, undo_animal_locations
 from .comments import seed_comments, undo_comments
-from .comment_joints import seed_comment_joints, undo_comment_joints
 from .educators import seed_educators, undo_educators
 from .animal_educators import seed_animal_educators, undo_animal_educators
 from .non_profit_orgs import seed_non_profit_orgs, undo_non_profit_orgs
@@ -24,7 +23,6 @@ def seed():
     seed_locations()
     seed_animal_locations()
     seed_comments()
-    seed_comment_joints()
     seed_educators()
     seed_animal_educators()
     seed_non_profit_orgs()
@@ -41,7 +39,6 @@ def undo():
     undo_locations()
     undo_animal_locations()
     undo_comments()
-    undo_comment_joints()
     undo_educators()
     undo_animal_educators()
     undo_non_profit_orgs()

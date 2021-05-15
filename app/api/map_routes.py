@@ -6,7 +6,7 @@ from json import dumps, loads
 
 map_routes = Blueprint('maps', __name__)
 
-api_key = environ.get('API_KEY')
+api_key = environ.get('GOOGLE_MAP_API_KEY')
 
 @map_routes.route('/directions/', methods=['POST'])
 def direction():

@@ -81,7 +81,7 @@ function SingleAnimalPage() {
 					COMMENTS
 					{animal.comment.map((comment) => (
 						<div className="single-comment">
-							<div className="user-name">User:{comment.user[0].username}</div>
+							<div className="user-name">User:{comment.user.username}</div>
 							<div className="comment-content">Comment:{comment.content}</div>
 						</div>
 					))}

@@ -9,5 +9,4 @@ from .animal import Animal
 from .animal_location import Animal_Location
 from .favorite_animal_list import Favorite_Animal_List
 from .favorite_educator_list import Favorite_Educator_List
-from .comment_joint import Comment_Joint
 from .animal_educator import Animal_Educator

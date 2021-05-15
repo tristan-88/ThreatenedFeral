@@ -1,17 +1,19 @@
 import os
 from flask import Flask, render_template, request, session, redirect
+from flask.helpers import url_for
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
 
-from .models import db, Animal_Location, Animal, Animal_Educator, Comment_Joint, Comment, Educator, Favorite_Animal_List, Favorite_Educator_List, Location, Non_Profit_Org, Photo, User
+from .models import db, Animal_Location, Animal, Animal_Educator, Comment, Educator, Favorite_Animal_List, Favorite_Educator_List, Location, Non_Profit_Org, Photo, User
 
 #routes
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.animal_routes import animal_routes
 from .api.map_routes import map_routes
+from .api.comment_routes import comment_routes
 
 from .seeds import seed_commands
 
@@ -37,6 +39,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(animal_routes, url_prefix='/api/animals')
 app.register_blueprint(map_routes, url_prefix='/api/maps')
+app.register_blueprint(comment_routes, url_prefix='/api/comments')
 db.init_app(app)
 Migrate(app, db)
 

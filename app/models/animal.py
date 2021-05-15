@@ -19,7 +19,7 @@ class Animal(db.Model):
     #association
     animal_loc = relationship("Animal_Location", backref="loc_animal", cascade="all, delete")
     animal_fav = relationship("Favorite_Animal_List", backref="fav_animal", cascade="all, delete")
-    animal_comment = relationship('Comment_Joint', backref="comment_animal", cascade="all, delete")
+    animal_comment = relationship('Comment', backref="comment_animal", cascade="all, delete")
     animal_educator = relationship("Animal_Educator", backref="educator_animal", cascade="all, delete")
     animal_photo = relationship("Photo", backref="photo_animal", cascade="all, delete")
     
@@ -38,7 +38,7 @@ class Animal(db.Model):
             "call_cry": self.call_cry,
             "photos": [photo.to_dict() for photo in self.animal_photo],
             "locations": [location.animal_location.to_dict() for location in self.animal_loc],
-            "comment": [comment.animal_comment.to_dict() for comment in self.animal_comment],
+            "comment": [comment.to_dict() for comment in self.animal_comment],
             "educator": [educator.animal_educator.to_dict() for educator in self.animal_educator],
             "org":[org.to_dict() for org in self.animal_non_profit_org] #direct many to many association attribute creation
         }

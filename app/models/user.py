@@ -19,7 +19,7 @@ class User(db.Model, UserMixin):
   #association
   user_favorite_animal = relationship("Favorite_Animal_List", backref="animal_favorite_user", cascade="all, delete")
   user_favorite_educator = relationship('Favorite_Educator_List', backref="educator_favorite_user", cascade="all, delete")
-  user_comment = relationship("Comment_Joint", backref="comment_user", cascade="all, delete")
+  user_comment = relationship("Comment", backref="comment_user", cascade="all, delete")
 
 
   @property
