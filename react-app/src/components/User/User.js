@@ -10,7 +10,7 @@ function User() {
   const { userId } = useParams();
   const favoriteAnimals = useSelector((state) => state.session.user.fav_anim)
   const animals = useSelector((state) => state.animal.animals)
-
+   const sessionUser = useSelector((state) => state.session.user);
   useEffect(() => {
     if (!userId) {
       return
@@ -40,13 +40,13 @@ function User() {
 		<>
 			<ul>
 				<li>
-					<strong>User Id</strong> {userId}
+					<strong>User Id:</strong> {sessionUser.id}
 				</li>
 				<li>
-					<strong>Username</strong> {user.username}
+					<strong>Username:</strong> {sessionUser.username}
 				</li>
 				<li>
-					<strong>Email</strong> {user.email}
+					<strong>Email:</strong> {sessionUser.email}
 				</li>
       </ul>
       <div>

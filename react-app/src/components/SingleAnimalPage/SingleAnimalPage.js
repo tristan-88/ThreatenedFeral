@@ -47,6 +47,8 @@ function SingleAnimalPage() {
 	
 	
 	if (!animal) return "loading";
+
+	//dynamically push the location from locations table affiliated with the animal
 	const locations = []
 	animal.locations.map((animal) => {
 	
