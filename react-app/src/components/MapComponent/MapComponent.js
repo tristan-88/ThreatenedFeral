@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from "react"
 import {useFetch} from "react-async"
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from "@react-google-maps/api";
 import Geocode from "react-geocode";
 import { directions } from "@googlemaps/google-maps-services-js/dist/directions";
 import { Client } from "@googlemaps/google-maps-services-js";
@@ -21,10 +21,13 @@ const search = "National Zoo"
 
 
 
-const MapComponent = () => {
-     const [state, setState] = useState([])
+const MapComponent = ({ locations }) => {
+    const [state, setState] = useState([])
+    const [ selected, setSelected] = useState({})
  
-
+    const onSelect = item => {
+        setSelected(item)
+    }
 
     const { isLoaded } = useJsApiLoader({
         id: "google-map-script",
@@ -74,14 +77,35 @@ const MapComponent = () => {
     
   
     return (
-     <>
-        {isLoaded && < GoogleMap
-	mapContainerStyle = {mapStyles}
-    zoom = {15}
-    center = { defaultCenter }
-        />}
-		</>
-	);
+			<>
+				{isLoaded && (
+					<GoogleMap
+						mapContainerStyle={mapStyles}
+						zoom={15}
+						center={defaultCenter}
+					>
+						{locations.map((item) => {
+							return (
+								<Marker
+									key={item.name}
+									position={item.location}
+									onClick={() => onSelect(item)}
+								/>
+							);
+						})}
+						{selected.location && (
+							<InfoWindow
+								position={selected.location}
+								clickable={true}
+								onCloseClick={() => setSelected({})}
+							>
+								<p>{selected.name}</p>
+							</InfoWindow>
+						)}
+					</GoogleMap>
+				)}
+			</>
+		);
 }
 
 

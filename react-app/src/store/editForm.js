@@ -6,20 +6,24 @@ export const hideForm = () => ({
 })
 
 export const showForm = () => ({
-    type: SHOW_FORM
+    type: SHOW_FORM,
 })
 
 const initialState = {
-    showEditForm:false
+    showEditForm: false,
 }
 
 export default function reducer(state = initialState, action) {
     let newState;
     switch (action.type) {
         case HIDE_FORM:
-            return { showEditForm: false }
+            newState = Object.assign({}, state)
+            newState.showEditForm = false
+            return newState
         case SHOW_FORM:
-            return { showEditForm: true}
+            newState = Object.assign({}, state)
+            newState.showEditForm = true
+            return newState
         default:
             return state
     }

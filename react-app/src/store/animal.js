@@ -64,7 +64,6 @@ export const postingComment = ({content, animalId}) => async (dispatch) => {
 		if (response.ok) {
 			await dispatch(editComment(data.comment));
 		}
-
 }
 
 export const editingComment = ({ commentId, content }) => async (dispatch) => {
@@ -102,8 +101,9 @@ export const deletingComment = ( commentId ) => async (dispatch) => {
 
 //reducers
 const initialState = {
-    animals: [],
-    currentAnimal: null
+    animals: null,
+    currentAnimal: null,
+    favoriteAnimals: null
 }
 export default function animalReducer(state = initialState, action) {
     let newState;
@@ -111,7 +111,7 @@ export default function animalReducer(state = initialState, action) {
         case SET_ANIMALS:
             return {
                 ...state,
-                animals: [...action.payload] //redundant to spread it on an array brackets
+                animals: action.payload //redundant to spread it on an array brackets
             };
         case GET_ANIMAL:
             return {

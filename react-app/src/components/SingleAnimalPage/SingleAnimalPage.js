@@ -12,39 +12,57 @@ import EditCommentForm from '../CommentForm/EditCommentForm'
 import CommentForm from '../CommentForm/CommentForm'
 
 function SingleAnimalPage() {
-    const { id } = useParams()
+	const { id } = useParams();
 	const dispatch = useDispatch();
 	const sessionUser = useSelector((state) => state.session.user);
-	const editFormStatus = useSelector((state) => state.editForm.showEditForm)
-	const [render, setRender] = useState(true)
+	const editFormStatus = useSelector((state) => state.editForm.showEditForm);
+	const [render, setRender] = useState(true);
+	const [editId, setEditId] = useState(0);
 
 
 	const handleEdit = (comment) => {
-		dispatch(showForm())
-	}
+		dispatch(showForm());
+		setEditId(comment.id);
+	};
 
 	const handleBack = () => {
-		dispatch(hideForm())
-	}
+		dispatch(hideForm());
+	};
 
 	const handleDelete = async (comment) => {
-		setRender(true)
-		await dispatch(deletingComment(comment.id))
-		setRender(false)
-	}
+		setRender(true);
+		await dispatch(deletingComment(comment.id));
+		setRender(false);
+	};
 	
 	const animals = useSelector((state) => state.animal.animals);
-	const animal = useSelector((state) => state.animal?.currentAnimal)
-	useEffect(() => {
-				if (sessionUser) {
-                    dispatch(getAnimals());
-					dispatch(singleAnimal(id))
-		}
-			}, [dispatch]);
+	const animal = useSelector((state) => state.animal?.currentAnimal);
 	
-			
-	if (!animal) return null;
+	useEffect(() => {
+		if (sessionUser) {
+			dispatch(getAnimals());
+			dispatch(singleAnimal(id));
+		}
+	}, [dispatch]);
+	
+	
+	if (!animal) return "loading";
+	const locations = []
+	animal.locations.map((animal) => {
+	
+		locations.push(
+			{
+				name: animal.location_name,
+				location: {
+					lat: animal.lat,
+					lng: animal.lng
+				}
+			},
+		)
 
+	})
+
+	console.log(locations, "LOCATION")
     return (
 			<div className="single-page-container">
 				<div className="current_name">{animal.name}</div>
@@ -67,7 +85,7 @@ function SingleAnimalPage() {
 				<div className="animal-habitat">{animal.fact_5}</div>
 				<div className="animal-population">{animal.fact_6}</div>
 				<div className="animal-threats">{animal.threats}</div>
-
+				
 				{animal.locations.map((location) => (
 					<div>
 						<div>
@@ -76,7 +94,7 @@ function SingleAnimalPage() {
 						</div>
 					</div>
 				))}
-				<MapComponent className="map-component" />
+				<MapComponent className="map-component" locations={locations} />
 				<div className="non-profit_container">
 					NON-PROFIT ORGANIZATIONS
 					{animal.org.map((org) => (
@@ -112,7 +130,7 @@ function SingleAnimalPage() {
 										Edit
 									</button>
 									<button onClick={() => handleDelete(comment)}>Delete</button>
-									{editFormStatus &&
+									{editFormStatus && editId === comment.id &&
 										<>
 										<EditCommentForm comment={comment} /> {/* put it in props to be able to pass the current value in the form and then to the initial useState */}
 										<button onClick={handleBack}>Go Back</button>

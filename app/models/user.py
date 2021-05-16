@@ -45,5 +45,6 @@ class User(db.Model, UserMixin):
       "city": self.city,
       "state": self.state,
       "zipcode": self.zipcode,
-      "avatar_url": self.avatar_url
+      "avatar_url": self.avatar_url,
+      "fav_anim": {animal.animal_id: animal.animal_id for animal in self.user_favorite_animal}
     }

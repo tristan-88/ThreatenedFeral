@@ -14,3 +14,4 @@ class Favorite_Animal_List(db.Model):
             "animal_id": self.animal_id,
             "user_id": self.user_id
         }
+    

@@ -18,6 +18,6 @@ class SignUpForm(FlaskForm):
     password = StringField('password', validators=[DataRequired()])
     address = StringField('address', validators=[DataRequired()])
     city = StringField('city', validators=[DataRequired()])
-    state = StringField('state', ValidationError=[DataRequired()])
-    zipcode = IntegerField('zip', ValidationError=[DataRequired()])
+    state = StringField('state', validators=[DataRequired()])
+    zipcode = IntegerField('zip', validators=[DataRequired()])
     avatar_url = StringField('avatar')

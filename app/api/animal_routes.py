@@ -10,7 +10,7 @@ animal_routes = Blueprint('animals', __name__)
 def animals():
     animals = Animal.query.all()
     #list output version
-    return {"animals": [animal.to_dict() for animal in animals]}
+    return {"animals": {animal.id: animal.to_dict() for animal in animals} }
    # dictionary version
     # return { animal.id: animal.to_dict() for animal in animals}
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { Redirect } from "react-router-dom"
-import {postingComment} from "../../store/animal"
+import {postingComment, singleAnimal} from "../../store/animal"
 
 const CommentForm = ({animalId}) => {
     const dispatch = useDispatch()
@@ -13,6 +13,8 @@ const CommentForm = ({animalId}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await dispatch(postingComment({ content: comment, animalId }))
+        setComment('')
+        await dispatch(singleAnimal(animalId))
     }
 
     const createComment = (e) => {

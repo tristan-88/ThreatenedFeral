@@ -19,7 +19,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      await dispatch(signUp(username, email, password));
+      await dispatch(signUp(username, email, password, address, city, state, zipcode, avatar_url));
     }
   };
 
