@@ -10,6 +10,8 @@ import CarouselComponent from '../Carousel/Carousel'
 import './SingleAnimalPage.css'
 import EditCommentForm from '../CommentForm/EditCommentForm'
 import CommentForm from '../CommentForm/CommentForm'
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 function SingleAnimalPage() {
 	const { id } = useParams();
@@ -19,7 +21,7 @@ function SingleAnimalPage() {
 	const [render, setRender] = useState(true);
 	const [editId, setEditId] = useState(0);
 
-
+	const handleDrag = (e) => e.preventDefault();
 	const handleEdit = (comment) => {
 		dispatch(showForm());
 		setEditId(comment.id);
@@ -64,11 +66,19 @@ function SingleAnimalPage() {
 
 	})
 
-	console.log(locations, "LOCATION")
+	const items = []
+	console.log(animal.photos, "PHOTOS")
+	for (let photo of animal?.photos) {
+
+		items.push(<img src={photo.photo_url} onDragStart={handleDrag} alt="no-image"/>,)
+	}
+	console.log(items, "Current")
+
     return (
 			<div className="single-page-container">
 				<div className="current_name">{animal.name}</div>
-				<CarouselComponent photos={animal.photos} className="photos-carousel" />
+			{/* <CarouselComponent photos={animal.photos} className="photos-carousel" /> */}
+			<AliceCarousel mouseTracking items={items}/>
 				<div className="audio-play-container">
 					Here me:
 					<ReactAudioPlayer
