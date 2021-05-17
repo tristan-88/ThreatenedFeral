@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {useSelector, useDispatch} from "react-redux"
-import { useParams, NavLink} from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
+import './User.css'
 
 function User() {
   const dispatch = useDispatch()
@@ -37,22 +38,24 @@ function User() {
 
 
   return (
-		<>
-			<ul>
-				<li>
+		<div className="user-page-container">
+			<div>
+        <div>
+          <h2>USER</h2>
 					<strong>User Id:</strong> {sessionUser.id}
-				</li>
-				<li>
+				</div>
+				<div>
 					<strong>Username:</strong> {sessionUser.username}
-				</li>
-				<li>
+				</div>
+				<div>
 					<strong>Email:</strong> {sessionUser.email}
-				</li>
-      </ul>
+				</div>
+      </div>
       <div>
+        <h2>FAVORITE ANIMALS</h2>
         {Object.values(favoriteAnimals).map((animal) => (
           <div className="animal-card-container" key={animal.id}>
-            <h2>FAVORITE ANIMALS</h2>
+            
 					<NavLink to={`/animals/${animal.id}`}>
 						<div className="animal-name">{animal.name}</div>
 						<div>
@@ -67,7 +70,7 @@ function User() {
 				</div>
 			))}</div>
 		
-		</>
+		</div>
 	);
 }
 export default User;

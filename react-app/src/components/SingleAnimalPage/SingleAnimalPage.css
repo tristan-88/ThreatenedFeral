@@ -1,7 +1,149 @@
 @import "react-alice-carousel/lib/alice-carousel.css";
 
+body{
+    font-family: fantasy;
+}
+
 .single-page-container{
     display: flex;
     flex-direction: column;
+}
+
+.animal-photo-container{
+    display: flex;
+    flex-direction: column;
     align-items: center;
+}
+.animal-photo{
+    width: 700px;
+    height: 500px;
+    box-shadow: 2px 17px 9px -7px rgba(12, 12, 12, 0.35);
+    margin: 10px;
+}
+
+.photo-description{
+    margin: 10px;
+    width: 600px;
+    height: 100px;
+    font-family: fantasy;
+}
+
+.current_name{
+    font-weight: bolder;
+    font-size: xx-large;
+    font-family: fantasy;
+    color: white;
+    text-shadow: -1px 3px 3px black,
+				  3px 3px 3px black,
+				  3px -1px 0  black,
+				  -1px -1px 0  black; 
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    align-self: center;
+}
+
+.audio-play-container{
+    font-family: fantasy;
+    padding: 5px;
+    margin: 10px;
+    display: flex; 
+    align-items: center;
+    align-self: center;
+}
+
+.non-profit_container{
+    display: flex;
+}
+
+.educator-container{
+    display: flex;
+}
+
+.description_stats{
+ display: flex;
+ align-self: center;
+}
+
+.animal-description{
+ width: 700px;
+ margin: 20px;
+ margin-left: 50px;
+}
+
+.stats-container{
+    display: inline-block;
+    width: 500px;
+    margin: 20px;
+    border: 2px solid black;
+    padding: 10px;
+    align-content: center;
+}
+
+hr{
+    width: 1500px;
+}
+
+.threat-container{
+    /* display:flex; */
+    align-self: center;
+    width: 1200px;
+    padding-bottom: 30px;
+}
+
+.map-loc-container{
+    align-self: center;
+    padding: 10px;
+    margin: 20px;
+    margin-bottom: 30px;
+}
+
+.non-profit_container,
+.educator-container{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+}
+
+.top-title{
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.edu-name-link,
+.org-name-link{
+    display: inline-block;
+    margin: 10px;
+   justify-self: center;
+
+}
+
+.comments-container{
+    /* align-self: center; */
+    padding: 20px;
+    margin: 20px;
+    width: 700px;
+}
+
+.comment-form{
+    margin: 30px;
+    width: 1500px;
+    justify-content: center;
+    display: flex;
+}
+
+.comment-h2{
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    
+}
+.single-comment{
+    margin: 30px;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    text-align: center;
+    width: 1500px;
 }

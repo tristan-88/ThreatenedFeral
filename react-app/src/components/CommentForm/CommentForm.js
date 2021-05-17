@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { Redirect } from "react-router-dom"
-import {postingComment, singleAnimal} from "../../store/animal"
+import { postingComment, singleAnimal } from "../../store/animal"
+import "./CommentForm.css"
 
 const CommentForm = ({animalId}) => {
     const dispatch = useDispatch()
@@ -25,9 +26,9 @@ const CommentForm = ({animalId}) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='comment-form'>
                 <div>
-                    <label>Comment</label>
+                    <label>Post Comment: </label>
                     <input
                         type="text"
                         name="comment"
