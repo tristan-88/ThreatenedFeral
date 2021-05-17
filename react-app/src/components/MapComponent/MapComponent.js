@@ -81,7 +81,7 @@ const MapComponent = ({ locations }) => {
 				{isLoaded && (
 					<GoogleMap
 						mapContainerStyle={mapStyles}
-						zoom={15}
+						zoom={4}
 						center={defaultCenter}
 					>
 						{locations.map((item) => {
