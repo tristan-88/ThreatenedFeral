@@ -19,6 +19,7 @@
     "react-audio-player": "^0.17.0",
     "react-dom": "^17.0.0",
     "react-geocode": "^0.2.3",
+    "react-modal": "^3.13.1",
     "react-player": "^2.9.0",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
