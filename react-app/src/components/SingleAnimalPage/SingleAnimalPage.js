@@ -162,7 +162,7 @@ function SingleAnimalPage() {
 
 					<CommentForm animalId={animal.id} className="comment-form" />
 
-					{Object.values(animal.comment).map((comment) => (
+					{Object.values(animal.comment).reverse().map((comment) => (
 						<div className="single-comment">
 							<div className="user-name">Author: {comment.user.username}</div>
 							<div className="comment-content">Comment:{comment.content}</div>

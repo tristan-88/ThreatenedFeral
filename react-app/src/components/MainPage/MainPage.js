@@ -41,7 +41,7 @@ function MainPage() {
     return (
 			<div className="main-page-container">
 				<div className="page-title">
-					<h1 className="page-title">Endagered Species</h1>
+					<h1 className="page-title">Endangered Species</h1>
 				</div>
 				<div className="main-page-quote">
 					<p>

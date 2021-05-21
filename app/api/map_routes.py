@@ -1,4 +1,5 @@
 from os import environ
+import os
 from flask import Blueprint, jsonify, session, request
 from urllib.request import  urlopen
 from urllib.parse import  quote_plus
@@ -16,3 +17,12 @@ def direction():
     response = urlopen(f"https://maps.googleapis.com/maps/api/directions/json?origin={origin}&destination={destination}&key={api_key}")
     object = loads(response.read().decode('UTF-8')) # equivalent of await response.json()
     return object
+
+
+@map_routes.route('')
+def get_map_api():
+    '''
+    Get the google map api key from .env
+    '''
+    mapKey = os.environ.get('API_KEY')
+    return jsonify(mapKey)

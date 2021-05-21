@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from "react"
 import {useFetch} from "react-async"
-import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow, LoadScript} from "@react-google-maps/api";
 import Geocode from "react-geocode";
 import { directions } from "@googlemaps/google-maps-services-js/dist/directions";
 import { Client } from "@googlemaps/google-maps-services-js";
@@ -22,6 +22,20 @@ const search = "National Zoo"
 
 
 const MapComponent = ({ locations }) => {
+	
+	const [apiKey, setApiKey] = useState('');
+	const [loaded, setLoaded] = useState(false)
+	useEffect(() => {
+		
+		(async () => {
+			const res = await fetch("/api/maps");
+			const map = await res.json()
+			console.log(map, "HELLO NAT")
+			setApiKey(map);
+			setLoaded(true)
+		})();
+	});
+
     const [state, setState] = useState([])
     const [ selected, setSelected] = useState({})
  
@@ -29,10 +43,11 @@ const MapComponent = ({ locations }) => {
         setSelected(item)
     }
 
-    const { isLoaded } = useJsApiLoader({
-        id: "google-map-script",
-        googleMapsApiKey: REACT_APP_API_KEY,
-    });
+    // const { isLoaded } = useJsApiLoader({
+    //     id: "google-map-script",
+    //     googleMapsApiKey: apiKey,
+	// });
+	
     const mapStyles = {
         height: "500px",
         width: "500px"
@@ -78,7 +93,8 @@ const MapComponent = ({ locations }) => {
   
     return (
 			<>
-				{isLoaded && (
+			{loaded && (
+				<LoadScript googleMapsApiKey={apiKey}>
 					<GoogleMap
 						mapContainerStyle={mapStyles}
 						zoom={4}
@@ -103,6 +119,8 @@ const MapComponent = ({ locations }) => {
 							</InfoWindow>
 						)}
 					</GoogleMap>
+				</LoadScript>
+					
 				)}
 			</>
 		);
