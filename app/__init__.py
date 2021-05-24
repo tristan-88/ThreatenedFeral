@@ -15,6 +15,7 @@ from .api.animal_routes import animal_routes
 from .api.map_routes import map_routes
 from .api.comment_routes import comment_routes
 from .api.favorite_routes import favorite_routes
+from .api.image_routes import image_routes
 
 from .seeds import seed_commands
 
@@ -42,6 +43,7 @@ app.register_blueprint(animal_routes, url_prefix='/api/animals')
 app.register_blueprint(map_routes, url_prefix='/api/maps')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
 app.register_blueprint(favorite_routes, url_prefix="/api/favorites")
+app.register_blueprint(image_routes, url_prefix='/api/images')
 db.init_app(app)
 Migrate(app, db)
 

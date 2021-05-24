@@ -163,7 +163,7 @@ function SingleAnimalPage() {
 					<CommentForm animalId={animal.id} className="comment-form" />
 
 					{Object.values(animal.comment).reverse().map((comment) => (
-						<div className="single-comment">
+						<div className="single-comment" key={comment.user.id}>
 							<div className="user-name">Author: {comment.user.username}</div>
 							<div className="comment-content">Comment:{comment.content}</div>
 							{comment.user.id === sessionUser.id && (

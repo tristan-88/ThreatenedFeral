@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import  { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../../store/session";
+import DemoButton from '../DemoButton/DemoButton'
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <button type="submit">Login</button>
+        <DemoButton/>
       </div>
     </form>
   );

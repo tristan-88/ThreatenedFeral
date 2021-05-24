@@ -1,30 +1,83 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 
 const SignUpForm = () => {
-  const dispatch = useDispatch();
-  const user = useSelector(state => state.session.user);
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("")
-  const [zipcode, setZipcode] = useState("");
-  const [avatar_url, setAvatar_Url] = useState("");
+	const dispatch = useDispatch();
+	const history = useHistory();
+	const user = useSelector(state => state.session.user);
+	const [username, setUsername] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [repeatPassword, setRepeatPassword] = useState("");
+	const [address, setAddress] = useState('');
+	const [city, setCity] = useState("");
+  	const [state, setState] = useState("")
+  	const [zipcode, setZipcode] = useState("");
+	const [avatar_url, setAvatar_Url] = useState("");
+	const [imageLoading, setImageLoading] = useState(false)
+
+	// const handleSubmit = async (e) => {
+	// 	e.preventDefault();
+	// 	const formData = new FormData()
+	// 	formData.append("username", username)
+	// 	formData.append("email", email)
+	// 	formData.append("password", password)
+	// 	formData.append("repeatPassword", repeatPassword)
+	// 	formData.append("address", address)
+	// 	formData.append("city", city)
+	// 	formData.append("state", state)
+	// 	formData.append("zipcode", zipcode)
+	// 	formData.append("avatar_url", avatar_url)
+	// 	setImageLoading(true)
+
+	// 	const res = await fetch('/api/auth/signup', {
+	// 		method: "POST",
+	// 		body: formData,
+	// 	})
+	// 	if (res.ok) {
+	// 		await res.json();
+	// 		setImageLoading(false);
+	// 		history.push("/signup")
+	// 	} else {
+	// 		setImageLoading(false);
+	// 		console.log("error")
+	// 	}
+	// }
+	
+
 
   const onSignUp = async (e) => {
-    e.preventDefault();
+	e.preventDefault();
+	  
+	let response;
+
+	const formData = new FormData();
+		formData.append("username", username);
+		formData.append("email", email);
+		formData.append("password", password);
+		formData.append("repeatPassword", repeatPassword);
+		formData.append("address", address);
+		formData.append("city", city);
+		formData.append("state", state);
+		formData.append("zipcode", zipcode);
+		formData.append("avatar_url", avatar_url);
+	
     if (password === repeatPassword) {
-      await dispatch(signUp(username, email, password, address, city, state, zipcode, avatar_url));
-    }
+    //   response =  await dispatch(signUp(username, email, password, address, city, state, zipcode, avatar_url));
+      response = await dispatch(signUp(formData));
+	}
+	if(response.ok){
+		history.push('/')
+	} else {
+		console.log(response, "REPONSE HERE!")
+		  alert("NO GOOD!!!")
+	}
   };
 
-  const pickAvatar = (e) => {
-    setAvatar_Url(e.target.value)
+  const updateAvatar = (e) => {
+    setAvatar_Url(e.target.files[0])
   }
 
   const updateZipCode = (e) => {
@@ -64,7 +117,7 @@ const SignUpForm = () => {
   }
 
   return (
-		<form onSubmit={onSignUp}>
+		<form >
 			<div>
 				<label>User Name</label>
 				<input
@@ -140,7 +193,7 @@ const SignUpForm = () => {
 			</div>
 			<div>
 				<label>Avatar</label>
-				<div className="radio-avatar_url">
+				{/* <div className="radio-avatar_url">
 					<input
 						type="radio"
 						value="Blue Whale"
@@ -162,9 +215,24 @@ const SignUpForm = () => {
 						onChange={(value) => pickAvatar(value)}
 					/>{" "}
 					Tiger
-				</div>
+				</div> */}
+			  <form>
+				  <div className="upload-avatar-box">
+					<label className="upload-avatar-label" htmlFor="file">
+						Upload a Avatar Photo
+					</label>
+					<input
+						id="file"
+						className="input-file"
+						name="image"
+					  type="file"
+					 onChange={updateAvatar}
+					/>
+			  </div>
+			  </form>
+				
 			</div>
-			<button type="submit">Sign Up</button>
+			<button type="submit" onClick= {onSignUp}>Sign Up</button>
 		</form>
 	);
 };

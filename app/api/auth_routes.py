@@ -3,6 +3,9 @@ from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
+from app.aws import (
+   upload_file_to_s3, allowed_file, get_unique_filename 
+)
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -61,17 +64,44 @@ def sign_up():
     Creates a new user and logs them in
     """
     form = SignUpForm()
+    
+    avatar_image = None
+    avatar_upload = None
+    avatar_url = None
+    
+    if (request.files):
+        try:
+            if(request.files["avatar_url"]):
+                #avatar_url from formdata which is an actual file from front end
+                avatar_image = request.files["avatar_url"]
+                
+                if not allowed_file(avatar_image.filename):
+                    return {"errors": "file type not permitted"}, 400
+
+                avatar_image.filename = get_unique_filename(avatar_image.filename)
+                avatar_upload = upload_file_to_s3(avatar_image)
+                
+                if "url" not in avatar_upload:
+                    return avatar_upload, 400
+                
+                
+                avatar_url = avatar_upload["url"]
+                form["avatar_url"].data = avatar_url
+        
+        except:
+            pass
+                
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User(
-            username=form.data['username'],
-            email=form.data['email'],
-            password=form.data['password'],
-            address = form.data["address"],
-            city = form.data['city'],
-            state = form.data['state'],
-            zipcode = form.data['zipcode'],
-            avatar_url =form.data["avatar_url"],
+            username=request.form['username'],
+            email= request.form['email'],
+            password=request.form['password'],
+            address = request.form["address"],
+            city = request.form['city'],
+            state = request.form['state'],
+            zipcode = request.form['zipcode'],
+            avatar_url = avatar_url,
             
             
         )
