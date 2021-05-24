@@ -17,7 +17,9 @@ const NavBar = () => {
 							Home
 						</NavLink>
 					</div>
-					<div>
+					{!user && 
+						<>			
+						<div>
 						<NavLink to="/login" exact={true} activeClassName="active">
 							Login
 						</NavLink>
@@ -26,15 +28,21 @@ const NavBar = () => {
 						<NavLink to="/sign-up" exact={true} activeClassName="active">
 							Sign Up
 						</NavLink>
-          </div>
-          {user && 	<div>
-            <NavLink to={`/users/${user.id}/`} exact={true} activeClassName="active">
-							User Page
-						</NavLink>
-					</div>}
+						</div>
+						</>
+					}
+					{user &&
+						<>
+						<div>
+							<NavLink to={`/users/${user.id}/`} exact={true} activeClassName="active">
+								User Page
+							</NavLink>
+						</div>
+						<LogoutButton />
+					</>}
 				
 					<div>
-						<LogoutButton />
+						
 					</div>
 				</div>
 			</nav>

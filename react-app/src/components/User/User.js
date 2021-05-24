@@ -39,10 +39,11 @@ function User() {
 
   return (
 		<div className="user-page-container">
-			<div>
+      <div>
+        <h2>USER</h2>
         <div>
-          <h2>USER</h2>
-					<strong>User Id:</strong> {sessionUser.id}
+          <h3>USER AVATAR</h3>
+          <img src={sessionUser.avatar_url} alt="No avatar" className="user-avatar"/>
 				</div>
 				<div>
 					<strong>Username:</strong> {sessionUser.username}
