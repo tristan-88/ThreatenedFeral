@@ -19,7 +19,7 @@ function SplashPage() {
         history.push('/main')
 	}
 	useEffect(() => {
-		dispatch(getAnimals())
+		// dispatch(getAnimals())
 	}, [dispatch])
     return (
 			<div>
@@ -32,8 +32,8 @@ function SplashPage() {
 								url="https://youtu.be/M1IDQSeJ1cs"
 								width="1400px"
 								height="600px"
-								playing="true"
-								muted="true"
+								playing={true}
+								muted={true}
 								style={{
 									zIndex: "-1",
 									display: "flex",
