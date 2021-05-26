@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import AliceCarousel from "react-alice-carousel"
 import './Carousel.css'
 
 function Carousel({ photos }) {

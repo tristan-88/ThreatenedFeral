@@ -10,9 +10,13 @@ import SplashPage from './components/SplashPage/SplashPage'
 import MainPage from './components/MainPage/MainPage'
 import User from "./components/User/User";
 import SingleAnimalPage from './components/SingleAnimalPage/SingleAnimalPage'
+import Footer from './components/Footer/Footer'
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const dotenv = require("dotenv").config();
+
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -55,7 +59,8 @@ function App() {
         <ProtectedRoute path='/animals/:id' exact={true}>
           <SingleAnimalPage/>
         </ProtectedRoute>
-			</Switch>
+		  </Switch>
+		  <Footer />
 		</BrowserRouter>
 	);
 }

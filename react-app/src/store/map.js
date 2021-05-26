@@ -1,4 +1,7 @@
-
+//test
+//const thunk = getDirections("National Zoo", "San Diego Zoo")
+//await thunk(dispatch)
+// to get the direction way points
 
 export const getDirections = (origin, destination) => async (dispatch) => {
     const response = await fetch('/api/maps/directions/', {
