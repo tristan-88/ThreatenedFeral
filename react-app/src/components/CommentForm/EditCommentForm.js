@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { hideForm } from '../../store/editForm'
-import {editingComment} from '../../store/animal'
+import { editingComment } from '../../store/animal'
+import "./CommentForm.css";
 
 const EditCommentForm = ({comment}) => {
 	const dispatch = useDispatch();
@@ -31,7 +32,10 @@ const EditCommentForm = ({comment}) => {
 						onChange={createComment}
 						value={currentComment}
 					></input>
-					<button type="submit">Submit</button>
+					<div className='buttons-div'>
+						<button className='button-submit' type="submit">Submit</button>
+					</div>
+					
 				</div>
 			</form>
 		</>

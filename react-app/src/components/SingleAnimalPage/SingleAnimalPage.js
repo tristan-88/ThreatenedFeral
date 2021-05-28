@@ -148,8 +148,7 @@ function SingleAnimalPage() {
 					<div className="top-title">
 						<h2>EDUCATORS: </h2>
 					</div>
-				{animal.educator.map((edu) => (
-						
+					{animal.educator.map((edu) => (
 						<div className="edu-name-link" key={edu.key}>
 							<a href={edu.content_link} className="edu-link">
 								{edu.educator_name}
@@ -159,29 +158,47 @@ function SingleAnimalPage() {
 				</div>
 				<hr />
 				<div className="comments-container">
-					<h2 className='comment-h2'>COMMENTS</h2>
+					<h2 className="comment-h2">COMMENTS</h2>
 
 					<CommentForm animalId={animal.id} className="comment-form" />
 
-					{Object.values(animal.comment).reverse().map((comment) => (
-						<div className="single-comment" key={comment.user.id}>
-							<div className="user-name">Author: {comment.user.username}</div>
-							<div className="comment-content">Comment:{comment.content}</div>
-							{comment.user.id === sessionUser.id && (
-								<>
-									<button onClick={() => handleEdit(comment)}>Edit</button>
-									<button onClick={() => handleDelete(comment)}>Delete</button>
-									{editFormStatus && editId === comment.id && (
-										<>
-											<EditCommentForm comment={comment} />{" "}
-											{/* put it in props to be able to pass the current value in the form and then to the initial useState */}
-											<button onClick={handleBack}>Go Back</button>
-										</>
-									)}
-								</>
-							)}
-						</div>
-					))}
+					{Object.values(animal.comment)
+						.reverse()
+						.map((comment) => (
+							<div className="single-comment" key={comment.user.id}>
+								<div className="user-name">Author: {comment.user.username}</div>
+								<div className="comment-content">Comment:{comment.content}</div>
+								{comment.user.id === sessionUser.id && (
+									<div>
+										<div className="buttons-div">
+										<button
+											className="button-edit"
+											onClick={() => handleEdit(comment)}
+										>
+											Edit
+										</button>
+										<button
+											className="button-delete"
+											 onClick={() => handleDelete(comment)}
+										>
+											Delete
+										</button>
+										</div>
+										{editFormStatus && editId === comment.id && (
+											<>
+												<EditCommentForm comment={comment} />{" "}
+												{/* put it in props to be able to pass the current value in the form and then to the initial useState */}
+												<div className='buttons-div'><button className="button-go-back" onClick={handleBack}>
+													Go Back
+												</button>
+												</div>
+												
+											</>
+										)}
+									</div>
+								)}
+							</div>
+						))}
 				</div>
 			</div>
 		);

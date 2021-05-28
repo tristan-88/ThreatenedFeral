@@ -25,22 +25,26 @@ const CommentForm = ({animalId}) => {
 
 
     return (
-        <>
-            <form onSubmit={handleSubmit} className='comment-form'>
-                <div>
-                    <label>Post Comment: </label>
-                    <input
-                        type="text"
-                        name="comment"
-                        onChange={createComment}
-                        value={comment}
+			<>
+				<form onSubmit={handleSubmit} className="comment-form">
+					<div>
+						<label>Post Comment: </label>
+						<input
+							type="text"
+							name="comment"
+							onChange={createComment}
+							value={comment}
                     ></input>
-                    <button type="submit">Submit</button>
-                </div>
-
-            </form>
-            </>
-    )
+                    <div className="buttons-div">
+                        <button className="button-submit" type="submit">
+                            Submit
+						</button>
+                    </div>
+					
+					</div>
+				</form>
+			</>
+		);
 
 }
 export default CommentForm
