@@ -47,11 +47,14 @@
 }
 
 .message-div{
-   font-size: xx-large;
+     font-size: xx-large;
     text-decoration: none;
     font-family: fantasy;
     justify-self: center;
     text-align: -webkit-center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
 }
 .message-div:focus, :hover, :visited, :link, :active {

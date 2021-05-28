@@ -1,40 +1,49 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch} from "react-redux";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm/SignUpForm";
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
-import SplashPage from './components/SplashPage/SplashPage'
-import MainPage from './components/MainPage/MainPage'
+import SplashPage from "./components/SplashPage/SplashPage";
+import MainPage from "./components/MainPage/MainPage";
 import User from "./components/User/User";
-import SingleAnimalPage from './components/SingleAnimalPage/SingleAnimalPage'
-import Footer from './components/Footer/Footer'
+import SingleAnimalPage from "./components/SingleAnimalPage/SingleAnimalPage";
+import Footer from "./components/Footer/Footer";
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const dotenv = require("dotenv").config();
 
-
 function App() {
-  // const [authenticated, setAuthenticated] = useState(false);
-  const dispatch = useDispatch()
-  const [loaded, setLoaded] = useState(false);
+	const user = useSelector((state) => state.session?.user);
+	const history = useHistory();
 
-  useEffect(() => {
-    (async() => {
-      await dispatch(authenticate())
-      setLoaded(true);
-    })();
-  }, [dispatch]);
+	// const [authenticated, setAuthenticated] = useState(false);
+	const dispatch = useDispatch();
+	const [loaded, setLoaded] = useState(false);
 
-  if (!loaded) {
-    return null;
-  }
+	useEffect(() => {
+		(async () => {
+			await dispatch(authenticate());
+			setLoaded(true);
+		})();
+	}, [dispatch]);
 
-  return (
+	if (!loaded) {
+		return null;
+	}
+
+	// if (!user) {
+	// 	if (history) {
+	// 	history.push("/")	
+	// 	}
+		
+	// }
+
+	return (
 		<BrowserRouter>
 			<NavBar />
 			<Switch>
@@ -55,12 +64,12 @@ function App() {
 				</Route>
 				<ProtectedRoute path="/main" exact={true}>
 					<MainPage />
-        </ProtectedRoute>
-        <ProtectedRoute path='/animals/:id' exact={true}>
-          <SingleAnimalPage/>
-        </ProtectedRoute>
-		  </Switch>
-		  <Footer />
+				</ProtectedRoute>
+				<ProtectedRoute path="/animals/:id" exact={true}>
+					<SingleAnimalPage />
+				</ProtectedRoute>
+			</Switch>
+			<Footer />
 		</BrowserRouter>
 	);
 }

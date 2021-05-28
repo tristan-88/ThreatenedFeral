@@ -2,7 +2,7 @@ import React from "react"
 import { useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux";
 import { demoLogin } from '../../../store/session';
-
+import './DemoButton.css'
 
 const DemoButton = () => {
     const history = useHistory();
@@ -17,7 +17,7 @@ const DemoButton = () => {
 
     return (
         <div>
-            <button onClick={onClick}>Demo</button>
+            <button  className="button-demo" onClick={onClick}>Demo</button>
         </div>
     )
 }

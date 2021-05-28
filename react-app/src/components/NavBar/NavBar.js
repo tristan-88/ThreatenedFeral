@@ -24,45 +24,64 @@ const NavBar = () => {
 
 	return (
 		<div className="nav-container">
-		
-			<nav className="nav-bar">
-				<div className="nav-elements-container">
-					<div>
-						<NavLink to="/" exact={true} activeClassName="active">
+			{/* <nav className="nav-bar"> */}
+			{/* <div className="nav-elements-container"> */}
+
+			{!user && (
+				<>
+					<div className="home-button-div">
+						<NavLink
+							to="/"
+							exact={true}
+							activeClassName="active"
+							className="home-button"
+						>
 							Home
 						</NavLink>
 					</div>
-					{!user && 
-						<>			
-						<div>
+					<div>
 						{/* <NavLink to="/login" exact={true} activeClassName="active">
 							Login
 						</NavLink> */}
-							<LoginForm />
+						<LoginForm />
 					</div>
 					<div>
 						{/* <NavLink to="/sign-up" exact={true} activeClassName="active">
 							Sign Up
 						</NavLink> */}
-							<SignUpForm />
-						</div>
-						</>
-					}
-					{user &&
-						<>
-						<div>
-							<NavLink to={`/users/${user.id}/`} exact={true} activeClassName="active">
-								User Page
-							</NavLink>
-						</div>
-						<LogoutButton />
-					</>}
-				
-					<div>
-						
+						<SignUpForm />
 					</div>
-				</div>
-			</nav>
+				</>
+			)}
+			{user && (
+				<>
+					<div className="home-button-div">
+						<NavLink
+							to="/main"
+							exact={true}
+							activeClassName="active"
+							className="home-button"
+						>
+							Main Page
+						</NavLink>
+					</div>
+					<div className="user-button-div">
+						<NavLink
+							to={`/users/${user.id}/`}
+							exact={true}
+							activeClassName="active"
+							className="user-button"
+						>
+							User Page
+						</NavLink>
+					</div>
+					<LogoutButton />
+				</>
+			)}
+
+			<div></div>
+			{/* </div> */}
+			{/* </nav> */}
 		</div>
 	);
 };

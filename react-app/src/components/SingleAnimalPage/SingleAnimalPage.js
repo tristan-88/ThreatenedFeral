@@ -71,7 +71,7 @@ function SingleAnimalPage() {
 	for (let photo of animal?.photos) {
 
 		items.push(<div className="animal-photo-container">
-			<img src={photo.photo_url} onDragStart={handleDrag} alt="no-image" className="animal-photo" />
+			<img src={photo.photo_url} onDragStart={handleDrag} alt="no-image" className="animal-photo" /*style={{backgroundImage: `url(${photo.photo_url})`}}*/ />
 			<div className='photo-description'>{photo.photo_description}</div>
 		</div>)
 	}
@@ -118,8 +118,8 @@ function SingleAnimalPage() {
 				<hr />
 				<div className="map-loc-container">
 					<h2>LOCATION</h2>
-					{animal.locations.map((location) => (
-						<div>
+					{animal.locations.map((location, idx) => (
+						<div key={idx}>
 							<div>
 								{`Name: ${location.location_name}
 								Lat: ${location.lat}
@@ -136,7 +136,7 @@ function SingleAnimalPage() {
 						<h2>NON-PROFIT ORGANIZATIONS: </h2>
 					</div>
 					{animal.org.map((org) => (
-						<div className="org-name-link">
+						<div className="org-name-link" key={org.id}>
 							<a href={org.non_profit_link} className="org-link">
 								{org.non_profit_name}
 							</a>
@@ -148,8 +148,9 @@ function SingleAnimalPage() {
 					<div className="top-title">
 						<h2>EDUCATORS: </h2>
 					</div>
-					{animal.educator.map((edu) => (
-						<div className="edu-name-link">
+				{animal.educator.map((edu) => (
+						
+						<div className="edu-name-link" key={edu.key}>
 							<a href={edu.content_link} className="edu-link">
 								{edu.educator_name}
 							</a>

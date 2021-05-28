@@ -1,1 +1,12 @@
 /* TODO Add site wide styles */
+a, button{
+    cursor: pointer;
+}
+
+a:hover{
+    color: unset !important;
+}
+
+#root{
+    font-family: fantasy;
+}

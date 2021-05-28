@@ -52,8 +52,9 @@ function User() {
 					<strong>Email:</strong> {sessionUser.email}
 				</div>
       </div>
-      <div>
+      <div className='favorite-container'>
         <h2>FAVORITE ANIMALS</h2>
+        
         {Object.values(favoriteAnimals).map((animal) => (
           <div className="animal-card-container" key={animal.id}>
             

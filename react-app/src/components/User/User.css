@@ -1,9 +1,95 @@
 .user-page-container{
  text-align: center;
- padding: 20px;
+margin: 20px;
+padding: 50px;
 }
 
 .user-avatar{
     width: 500px;
     height: 300px;
+    margin: 50px;
+}
+
+.favorite-container {
+    margin: 50px;
+}
+.animal-card-container
+{
+	width: 500px;
+	height: 375px;
+	position: relative;
+	overflow: hidden;
+    display:inline-block;
+    margin: 30px;
+    
+    
+}
+
+.animal-card-container:before
+{
+	position: absolute;
+	top: 0;
+	left: 180%;
+	height: 500px;
+	width: 400px;
+	background: rgba(255,255,255,.3);
+	z-index: 1;
+	transform: skew(45deg);
+	transition: .5s;
+    box-shadow: 2px 100px 9px -7px rgba(12, 12, 12, 0.35);
+}
+
+.animal-card-container:hover:before
+{
+	left: -180%;
+}
+
+.animal-card-container .animal-image
+{
+	height: 300px;
+	width: 100%;
+	filter: grayscale(100%);
+	transition: 2s;
+    box-shadow: 2px 10px 9px -7px rgba(12, 12, 12, 0.35);
+  
+   
+}
+.animal-card-container:hover .animal-image
+{
+	filter: grayscale(0%);
+	transform: scale(1.1);
+    transition: 2s;
+    box-shadow: none;
+}
+
+
+.animal-name{
+    font-weight: bolder;
+    font-size: x-large;
+    font-family: fantasy;
+    color: white;
+    text-shadow: -1px 3px 3px black,
+				  3px 3px 3px black,
+				  3px -1px 0  black,
+				  -1px -1px 0  black; 
+
+   
+    margin: 20px;
+    text-decoration: none;
+    border: none;
+    box-shadow: none;
+    
+    
+}
+
+.animal-name:focus, :hover, :visited, :link, :active {
+        text-decoration: none;
+    }
+
+.active{
+    text-decoration: none;
+    color: white;
+}
+.animal-card-container{
+    box-shadow: 2px 20px 5px -6px rgba(12, 12, 12, 0.35);
 }

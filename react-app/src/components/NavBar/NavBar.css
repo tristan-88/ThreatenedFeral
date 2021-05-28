@@ -1,14 +1,47 @@
 .nav-container{
-    /* width: 100% */
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 145px;
+    margin-right: -75px;
+    justify-content: space-evenly;
+    max-height: 300px;
 }
 
 .nav-bar{
     display: flex;
+	margin-top: 10px;
+	margin-bottom: 50px;
+	max-height: 300px;
+	bottom: 0;
     flex-direction: row;
 }
 
 .nav-elements-container{
-    width: 100%;
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+	margin-top: 10px;
+	margin-bottom: 50px;
+	max-height: 300px;
+	bottom: 0;
+    flex-direction: row;
+    
+}
+
+.home-button, 
+.user-button{
+    font-family: fantasy;
+    font-size: x-large;
+    color: white;
+	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
+		-1px -1px 0 black;
+    font-weight: bolder;
+   
+}
+
+.user-button-div,
+.home-button-div{
+    align-self: center;
 }

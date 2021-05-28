@@ -36,52 +36,61 @@ const LoginForm = () => {
 
 	return (
 		<div>
-			<div onClick={() => setShow(true)}
-				className="nav-log-in">Log In</div>
-      <Modal
-        show={show}
-        onHide={() => setShow(false)}
-        backdrop="static"
-        keyboard={false}
-      >
-
-        <Modal.Header closeButton
-          className="close-button">
-          <Modal.Title>Log In</Modal.Title>
-          </Modal.Header>
+			<div onClick={() => setShow(true)} className="nav-log-in">
+				Log In
+			</div>
+			<Modal
+				show={show}
+				onHide={() => setShow(false)}
+				backdrop="static"
+				keyboard={false}
+			>
+				<Modal.Header closeButton className="close-button">
+					<Modal.Title>Log In</Modal.Title>
+				</Modal.Header>
 				<Modal.Body>
 					<form>
-						<div>
-							{errors.map((error) => (
-								<div>{error}</div>
-							))}
+						<div className="form-border">
+							<div>
+								{errors.map((error, idx) => (
+									<div key={idx}>{error}</div>
+								))}
+							</div>
+							<div>
+								<label htmlFor="email">Email</label>
+								<input
+									name="email"
+									type="text"
+									placeholder="Email"
+									value={email}
+									onChange={updateEmail}
+								/>
+							</div>
+							<div>
+								<label htmlFor="password">Password</label>
+								<input
+									name="password"
+									type="password"
+									placeholder="Password"
+									value={password}
+									onChange={updatePassword}
+								/>
+								<button
+									className="button-log-in"
+									type="submit"
+									onClick={onLogin}
+								>
+									Login
+								</button>
+								<DemoButton />
+							</div>
 						</div>
-						<div>
-							<label htmlFor="email">Email</label>
-							<input
-								name="email"
-								type="text"
-								placeholder="Email"
-								value={email}
-								onChange={updateEmail}
-							/>
-						</div>
-						<div>
-							<label htmlFor="password">Password</label>
-							<input
-								name="password"
-								type="password"
-								placeholder="Password"
-								value={password}
-								onChange={updatePassword}
-							/>
-							<button type="submit" onClick={onLogin}>Login</button>
-							<DemoButton />
-						</div>
-          </form>
-          <Modal.Footer>
-            <button onClick={() => setShow(false)}>cancel</button>
-          </Modal.Footer>
+					</form>
+					<Modal.Footer>
+						<button className="button-cancel"  onClick={() => setShow(false)}>
+							cancel
+						</button>
+					</Modal.Footer>
 				</Modal.Body>
 			</Modal>
 		</div>

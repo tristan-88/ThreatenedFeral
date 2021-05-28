@@ -1,4 +1,4 @@
-@import "react-alice-carousel/lib/alice-carousel.css";
+/* @import "react-alice-carousel/lib/alice-carousel.css"; */
 
 body{
     font-family: fantasy;
@@ -20,6 +20,10 @@ body{
     height: 500px;
     box-shadow: 2px 17px 9px -7px rgba(12, 12, 12, 0.35);
     margin: 10px;
+ /* background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+
 }
 
 .photo-description{
@@ -39,7 +43,7 @@ body{
 				  3px -1px 0  black,
 				  -1px -1px 0  black; 
     padding: 10px;
-    margin: 10px;
+    margin: 50px;
     display: flex;
     align-self: center;
 }
@@ -59,6 +63,7 @@ body{
 
 .educator-container{
     display: flex;
+    margin:20px;
 }
 
 .description_stats{
@@ -147,4 +152,14 @@ hr{
     align-items: center;
     text-align: center;
     width: 1500px;
+}
+
+.user-name{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.comment-content{
+    color: gray;
+    font-size: large;
 }

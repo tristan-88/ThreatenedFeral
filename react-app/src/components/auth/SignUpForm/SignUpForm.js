@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../../store/session";
 import { Modal } from "react-bootstrap";
-import './SignUpForm.css'
+import "./SignUpForm.css";
 
 const SignUpForm = () => {
 	const dispatch = useDispatch();
@@ -64,7 +64,11 @@ const SignUpForm = () => {
 		formData.append("zipcode", zipcode);
 		formData.append("avatar_url", avatar_url);
 
-		if (password === repeatPassword) {
+		if (
+			password === repeatPassword &&
+			password !== "" &&
+			repeatPassword !== ""
+		) {
 			//   response =  await dispatch(signUp(username, email, password, address, city, state, zipcode, avatar_url));
 			response = await dispatch(signUp(formData));
 		}
@@ -118,99 +122,101 @@ const SignUpForm = () => {
 
 	return (
 		<div
-			// onKeyDown={(e)=>e.stopPropagation()}
-			// onFocus={(e)=>e.stopPropagation()}
-			// onMouseOver={(e)=>e.stopPropagation()}
-			// onClick={(e)=>e.stopPropagation()}
+		// onKeyDown={(e)=>e.stopPropagation()}
+		// onFocus={(e)=>e.stopPropagation()}
+		// onMouseOver={(e)=>e.stopPropagation()}
+		// onClick={(e)=>e.stopPropagation()}
 		>
-			<div onClick={()=> setShow(true)} className="nav-sign-up">Sign Up</div>
+			<div onClick={() => setShow(true)} className="nav-sign-up">
+				Sign Up
+			</div>
 			<Modal
 				show={show}
 				onHide={() => setShow(false)}
-				backdrop="static"
+				// backdrop="static"
 				keyboard={false}
 			>
 				<Modal.Header closeButton className="close-button">
 					<Modal.Title>Sign Up</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<form>
-						<div>
-							<label>User Name</label>
-							<input
-								type="text"
-								name="username"
-								onChange={updateUsername}
-								value={username}
-							></input>
-						</div>
-						<div>
-							<label>Email</label>
-							<input
-								type="text"
-								name="email"
-								onChange={updateEmail}
-								value={email}
-							></input>
-						</div>
-						<div>
-							<label>Password</label>
-							<input
-								type="password"
-								name="password"
-								onChange={updatePassword}
-								value={password}
-							></input>
-						</div>
-						<div>
-							<label>Repeat Password</label>
-							<input
-								type="password"
-								name="repeat_password"
-								onChange={updateRepeatPassword}
-								value={repeatPassword}
-								required={true}
-							></input>
-						</div>
-						<div>
-							<label>Address</label>
-							<input
-								type="text"
-								name="address"
-								onChange={updateAddress}
-								value={address}
-							></input>
-						</div>
-						<div>
-							<label>City</label>
-							<input
-								type="text"
-								name="city"
-								onChange={updateCity}
-								value={city}
-							></input>
-						</div>
-						<div>
-							<label>State</label>
-							<input
-								type="text"
-								name="state"
-								onChange={updateState}
-								value={state}
-							></input>
-						</div>
-						<div>
-							<label>Zip Code</label>
-							<input
-								type="text"
-								name="zipcode"
-								onChange={updateZipCode}
-								value={zipcode}
-							></input>
-						</div>
-						<div>
-							<label>Avatar</label>
-							{/* <div className="radio-avatar_url">
+					<form onSubmit={onSignUp}>
+						<div className="form-border">
+							<div>
+								<label>User Name</label>
+								<input
+									type="text"
+									name="username"
+									onChange={updateUsername}
+									value={username}
+								></input>
+							</div>
+							<div>
+								<label>Email</label>
+								<input
+									type="text"
+									name="email"
+									onChange={updateEmail}
+									value={email}
+								></input>
+							</div>
+							<div>
+								<label>Password</label>
+								<input
+									type="password"
+									name="password"
+									onChange={updatePassword}
+									value={password}
+								></input>
+							</div>
+							<div>
+								<label>Repeat Password</label>
+								<input
+									type="password"
+									name="repeat_password"
+									onChange={updateRepeatPassword}
+									value={repeatPassword}
+									required={true}
+								></input>
+							</div>
+							<div>
+								<label>Address</label>
+								<input
+									type="text"
+									name="address"
+									onChange={updateAddress}
+									value={address}
+								></input>
+							</div>
+							<div>
+								<label>City</label>
+								<input
+									type="text"
+									name="city"
+									onChange={updateCity}
+									value={city}
+								></input>
+							</div>
+							<div>
+								<label>State</label>
+								<input
+									type="text"
+									name="state"
+									onChange={updateState}
+									value={state}
+								></input>
+							</div>
+							<div>
+								<label>Zip Code</label>
+								<input
+									type="text"
+									name="zipcode"
+									onChange={updateZipCode}
+									value={zipcode}
+								></input>
+							</div>
+							<div>
+								{/* <div className="radio-avatar_url">
 					<input
 						type="radio"
 						value="Blue Whale"
@@ -233,27 +239,30 @@ const SignUpForm = () => {
 					/>{" "}
 					Tiger
 				</div> */}
-							<form>
-								<div className="upload-avatar-box">
-									<label className="upload-avatar-label" htmlFor="file">
-										Upload a Avatar Photo
-									</label>
-									<input
-										id="file"
-										className="input-file"
-										name="image"
-										type="file"
-										onChange={updateAvatar}
-									/>
-								</div>
-							</form>
+								<form>
+									<div className="upload-avatar-box">
+										<label className="upload-avatar-label" htmlFor="file">
+											Upload an Avatar Photo
+										</label>
+										<input
+											id="file"
+											className="input-file"
+											name="image"
+											type="file"
+											onChange={updateAvatar}
+										/>
+									</div>
+								</form>
+							</div>
 						</div>
-						<button type="submit" onClick={onSignUp}>
+						<button className="button-sign-up" type="submit">
 							Sign Up
 						</button>
 					</form>
 					<Modal.Footer>
-						<button onClick={() => setShow(false)}>cancel</button>
+						<button className="button-cancel" onClick={() => setShow(false)}>
+							cancel
+						</button>
 					</Modal.Footer>
 				</Modal.Body>
 			</Modal>

@@ -11,6 +11,7 @@ import Geocode from "react-geocode";
 import { directions } from "@googlemaps/google-maps-services-js/dist/directions";
 import { Client } from "@googlemaps/google-maps-services-js";
 import direction from "google-maps-direction";
+import './MapComponent.css'
 
 const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 const client = new Client({});
@@ -100,41 +101,43 @@ const MapComponent = ({ locations }) => {
 	);
 
 	return (
-		<>
+		<div>
 			{loaded && (
 				<>
 					{/* <h1>GeoLat:{geoLat} GeoLng:{geoLng}</h1>
 					<h1>GeoLat:{geoLat2} GeoLng:{geoLng2}</h1> */}
 					<LoadScript googleMapsApiKey={apiKey}>
-						<GoogleMap
-							mapContainerStyle={mapStyles}
-							zoom={4}
-							center={defaultCenter}
-						>
-							{locations.map((item) => {
-								console.log(item, "items!!!")
-								return (
-									<Marker
-										key={item.name}
-										position={item.location}
-										onClick={() => onSelect(item)}
-									/>
-								);
-							})}
-							{selected.location && (
-								<InfoWindow
-									position={selected.location}
-									clickable={true}
-									onCloseClick={() => setSelected({})}
-								>
-									<p>{selected.name}</p>
-								</InfoWindow>
-							)}
-						</GoogleMap>
+						<div className="block">
+							<GoogleMap
+								mapContainerStyle={mapStyles}
+								zoom={4}
+								center={defaultCenter}
+							>
+								{locations.map((item) => {
+									console.log(item, "items!!!");
+									return (
+										<Marker
+											key={item.name}
+											position={item.location}
+											onClick={() => onSelect(item)}
+										/>
+									);
+								})}
+								{selected.location && (
+									<InfoWindow
+										position={selected.location}
+										clickable={true}
+										onCloseClick={() => setSelected({})}
+									>
+										<p>{selected.name}</p>
+									</InfoWindow>
+								)}
+							</GoogleMap>
+						</div>
 					</LoadScript>
 				</>
 			)}
-		</>
+		</div>
 	);
 };
 

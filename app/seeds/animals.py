@@ -51,7 +51,7 @@ def seed_animals():
          fact_6="Population: 1,864 in the wild",
          threats= '''
          China’s Yangtze Basin region holds the panda’s primary habitat. Infrastructure development (such as dams, roads, and railways) is increasingly fragmenting and isolating panda populations, preventing pandas from finding new bamboo forests and potential mates. Forest loss also reduces pandas’ access to the bamboo they need to survive. The Chinese government has established more than 50 panda reserves, but only around 67% of the total wild panda population lives in reserves, with 54% of the total habitat area being protected. Although poaching impacted pandas in the past, its impact declined since the enactment of the Wildlife Protection Act (1988), which bans poaching and carries severe punishments. However, pandas may get caught accidentally in snares set for musk deer or other species.''',
-         call_cry='thestablesbb.powweb.com/WAV FILES/bear.wav'
+         call_cry='http://thestablesbb.powweb.com/WAV%20FILES/bear.wav'
      )
      
      db.session.add(animal_2)

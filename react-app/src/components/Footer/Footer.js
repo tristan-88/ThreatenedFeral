@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Footer.css";
 
 function Footer() {
@@ -21,7 +20,7 @@ function Footer() {
 					</a>
 				</div>
 				<div className="porfolio-link">
-					<a href="" target="_blank">
+					<a href="https://tristan-88.github.io/" target="_blank">
 						<i class="fas fa-user-secret"></i>
 					</a>
 				</div>

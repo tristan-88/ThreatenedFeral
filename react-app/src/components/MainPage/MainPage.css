@@ -37,6 +37,7 @@
 				  3px -1px 0  black,
 				  -1px -1px 0  black; 
     padding: 10px;
+    margin: 30px;
 }
 
 .animal-card-container
@@ -119,3 +120,4 @@
 .animal-card-container{
     box-shadow: 2px 20px 5px -6px rgba(12, 12, 12, 0.35);
 }
+
