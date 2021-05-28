@@ -22,9 +22,9 @@ const editComment = (comment) => ({
     type: EDIT_COMMENT,
     payload: comment
 }) 
-const deleteComment = (commentId) => ({
+const deleteComment = (comment) => ({
     type: DELETE_COMMENT,
-    payload: commentId
+    payload: comment
 }) 
 
 
@@ -83,18 +83,18 @@ export const editingComment = ({ commentId, content }) => async (dispatch) => {
     }
 }
 
-export const deletingComment = ( commentId ) => async (dispatch) => {
+export const deletingComment = ( comment ) => async (dispatch) => {
     const response = await fetch(`/api/comments/`, {
         method: 'DELETE',
         headers: {
             "Content-Type": 'application/json'
         },
         body: JSON.stringify({
-            commentId,
+            commentId:comment.id
         })
     })
     if (response.ok) {
-        await dispatch(deleteComment(commentId))
+        await dispatch(deleteComment(comment))
         return response
     }
 } 
@@ -120,11 +120,13 @@ export default function animalReducer(state = initialState, action) {
             }
         case DELETE_COMMENT:
             newState = Object.assign({}, state)
-            delete state.currentAnimal.comment[action.payload]
+            delete newState.animals[action.payload.animal_id].comment[action.payload.id]
+             delete newState.currentAnimal.comment[action.payload.id]
             return newState
         case EDIT_COMMENT:
             newState = Object.assign({}, state)
-            state.currentAnimal.comment[action.payload.id] = action.payload
+            newState.currentAnimal.comment[action.payload.id] = action.payload
+            newState.animals[action.payload.animal_id].comment[action.payload.id] = action.payload
             return newState
         default:
             return state
