@@ -20,7 +20,7 @@ def validation_errors_to_error_messages(validation_errors):
 #all comment tested
 @comment_routes.route('/')
 def get_comments():
-    comments = Comment.query.all()
+    comments = Comment.query.order_by.desc().all()
     return {"comments": [comment.to_dict() for comment in comments]}
 
 #single comment tested

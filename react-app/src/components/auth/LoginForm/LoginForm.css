@@ -1,13 +1,14 @@
 .nav-log-in{
-    font-family: fantasy;
+    font-family: "Amatic", serif;
     font-size: x-large;
     color: white;
 	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
 		-1px -1px 0 black;
     font-weight: bolder;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
     cursor: pointer;
+  
 }
 
 .modal-content {
@@ -18,7 +19,7 @@
 
 .modal-body{
     text-align: end;
-    font-family: fantasy;
+    font-family: "Amatic", serif;
 }
 
 .modal-header {
@@ -58,7 +59,7 @@ background-color: black;
      color: white;
 	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
 		-1px -1px 0 black;
-    font-family: fantasy;
+  font-family: "Amatic", serif;
 }
 
 
@@ -87,11 +88,11 @@ button.close,
 button.button-log-in,
 button.button-cancel{
   color: white;
-  font-size: 13px;
+  font-size: 1em;
   font-weight: 500;
   letter-spacing: 0.7px;
    background-image: linear-gradient(45deg, white,  black);
-   margin: 10px;
+   margin: 0.8em;
 }
 button.close,
 button.button-log-in,
@@ -155,3 +156,9 @@ label{
 .modal-content{
     background-color: black;
 }
+
+demo_login_container{
+  display: flex;
+  flex-direction: column;
+}
+

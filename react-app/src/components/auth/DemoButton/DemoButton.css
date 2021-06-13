@@ -14,10 +14,11 @@ button.button-demo{
   opacity: 1;
   background-color: #ffffff;
   border: 1px outset white;
+  margin: 0.8em;
 }
 button.button-demo{
   color: white;
-  font-size: 13px;
+  font-size: 1em;
   font-weight: 500;
   letter-spacing: 0.7px;
    background-image: linear-gradient(45deg, white,  black);

@@ -15,7 +15,7 @@ import './MapComponent.css'
 
 const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 const client = new Client({});
-const search = "Dumb Friends League";
+const search = "National Zoo";
 
 // async function direct(){
 //     const directions = await fetch(
@@ -37,7 +37,24 @@ const MapComponent = ({ locations }) => {
 			const map = await res.json();
 			setApiKey(map);
 			setLoaded(true);
+			//grabs the long and lng of th place I put in string you search for
+			// Geocode.setApiKey(map);
+			// Geocode.setLanguage("en");
+			// Geocode.setLocationType("ROOFTOP");
+			// Geocode.enableDebug();
+			// Geocode.fromAddress(search).then(
+			// 	(response) => {
+			// 		const { lat, lng } = response.results[0].geometry.location;
+			// 		setGeoLat(lat);
+			// 		setGeoLng(lng);
+			// 		// console.log(lat, lng, "National Zoo");
+			// 	},
+			// 	(error) => {
+			// 		console.error(error);
+			// 	}
+			// );
 		})();
+
 	});
 
 	const [state, setState] = useState([]);
@@ -63,42 +80,29 @@ const MapComponent = ({ locations }) => {
 	};
 
 	//gets a lng and lat from string address
-	client
-		.geocode({
-			params: {
-				address: "3001 Connecticut Ave NW, Washington, DC 20008",
-				key: REACT_APP_API_KEY,
-			},
-		})
-		.then((r) => {
-			console.log("Address:....", +r.data.results[0].formatted_address);
-			console.log("Latitude:....", +r.data.results[0].geometry.location.lat);
-			console.log("Logitude:....", +r.data.results[0].geometry.location.lng);
-			const { lat, lng } = r.data.results[0].geometry.location
-			setGeoLat2(lat)
-			setGeoLng2(lng)
-		})
-		.catch((e) => {
-			console.log(e);
-		});
+	// client
+	// 	.geocode({
+	// 		params: {
+	// 			address: "3001 Connecticut Ave NW, Washington, DC 20008",
+	// 			key: apiKey,
+	// 		},
+	// 	})
+	// 	.then((r) => {
+	// 		console.log(`Place Id:....,  ${r.data.results[0].place_id}`);
+	// 		console.log(`Address:....,  ${r.data.results[0].formatted_address}`);
+	// 		console.log("Latitude:....", +r.data.results[0].geometry.location.lat);
+	// 		console.log("Logitude:....", +r.data.results[0].geometry.location.lng);
+	// 		const { lat, lng } = r.data.results[0].geometry.location
+	// 		setGeoLat2(lat)
+	// 		setGeoLng2(lng)
+	// 	})
+	// 	.catch((e) => {
+	// 		console.log(e);
+	// 	});
 
-	//grabs the long and lng of th place I put in string you search for
 
-	Geocode.setApiKey(apiKey);
-	Geocode.setLanguage("en");
-	Geocode.setLocationType("ROOFTOP");
-	Geocode.enableDebug();
-	Geocode.fromAddress(search).then(
-		(response) => {
-			const { lat, lng } = response.results[0].geometry.location;
-			setGeoLat(lat)
-			setGeoLng(lng)
-			console.log(lat, lng, "National Zoo");
-		},
-		(error) => {
-			console.error(error);
-		}
-	);
+
+	
 
 	return (
 		<div>
@@ -107,23 +111,25 @@ const MapComponent = ({ locations }) => {
 					{/* <h1>GeoLat:{geoLat} GeoLng:{geoLng}</h1>
 					<h1>GeoLat:{geoLat2} GeoLng:{geoLng2}</h1> */}
 					<LoadScript googleMapsApiKey={apiKey}>
-						<div className="block">
-							<GoogleMap
+						<div id="block">
+							<div className="map"><GoogleMap
 								mapContainerStyle={mapStyles}
 								zoom={4}
 								center={defaultCenter}
 							>
 								{locations.map((item) => {
-									console.log(item, "items!!!");
+									// console.log(item, "items!!!");
 									return (
 										<Marker
 											key={item.name}
 											position={item.location}
 											onClick={() => onSelect(item)}
+											clickable={true}
 										/>
 									);
 								})}
 								{selected.location && (
+
 									<InfoWindow
 										position={selected.location}
 										clickable={true}
@@ -133,6 +139,8 @@ const MapComponent = ({ locations }) => {
 									</InfoWindow>
 								)}
 							</GoogleMap>
+							</div>
+							
 						</div>
 					</LoadScript>
 				</>

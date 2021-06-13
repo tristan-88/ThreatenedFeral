@@ -15,11 +15,11 @@
     font-weight: bolder;
     font-size: 72px;
     font-family: fantasy;
-     color: black;
-    text-shadow: -1px 3px 3px whitesmoke,
-				  3px 3px 3px aliceblue,
-				  3px -1px 0  aliceblue,
-				  -1px -1px 0  whitesmoke; 
+     color: #FF7F11;
+    text-shadow: -1px 3px 3px #334352,
+				  3px 3px 3px #334352,
+				  3px -1px 0  #334352,
+				  -1px -1px 0  #334352; 
       z-index: 1;
       /* top:50px;
       left:50px; */
@@ -49,7 +49,7 @@
 .message-div{
      font-size: xx-large;
     text-decoration: none;
-    font-family: fantasy;
+    font-family: "Amatic", serif;
     justify-self: center;
     text-align: -webkit-center;
     display: flex;

@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import { login } from "../../../store/session";
 import DemoButton from "../DemoButton/DemoButton";
 import { Modal } from "react-bootstrap";
-import './LoginForm.css'
+import "./LoginForm.css";
 
 const LoginForm = () => {
 	const dispatch = useDispatch();
@@ -75,19 +75,21 @@ const LoginForm = () => {
 									value={password}
 									onChange={updatePassword}
 								/>
-								<button
-									className="button-log-in"
-									type="submit"
-									onClick={onLogin}
-								>
-									Login
-								</button>
-								<DemoButton />
+								<div className="demo_login_container">
+									<button
+										className="button-log-in"
+										type="submit"
+										onClick={onLogin}
+									>
+										Login
+									</button>
+									<DemoButton />
+								</div>
 							</div>
 						</div>
 					</form>
 					<Modal.Footer>
-						<button className="button-cancel"  onClick={() => setShow(false)}>
+						<button className="button-cancel" onClick={() => setShow(false)}>
 							cancel
 						</button>
 					</Modal.Footer>

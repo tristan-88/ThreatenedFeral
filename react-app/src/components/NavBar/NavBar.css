@@ -1,23 +1,23 @@
 .nav-container{
     display: flex;
-    margin-top: 10px;
+    /* margin-top: 10px;
     margin-bottom: 20px;
     margin-left: 145px;
-    margin-right: -75px;
+    margin-right: -75px; */
     justify-content: space-evenly;
     max-height: 300px;
 }
 
 .nav-bar{
     display: flex;
-	margin-top: 10px;
+	/* margin-top: 10px;
 	margin-bottom: 50px;
-	max-height: 300px;
+	max-height: 300px; */
 	bottom: 0;
     flex-direction: row;
 }
 
-.nav-elements-container{
+/* .nav-elements-container{
     display: flex;
     width: 100%;
     justify-content: space-evenly;
@@ -27,12 +27,13 @@
 	max-height: 300px;
 	bottom: 0;
     flex-direction: row;
+    font-family: "Amatic", serif;
     
-}
+} */
 
 .home-button, 
 .user-button{
-    font-family: fantasy;
+    font-family: "Amatic", serif;
     font-size: x-large;
     color: white;
 	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
@@ -44,4 +45,6 @@
 .user-button-div,
 .home-button-div{
     align-self: center;
+    margin-left: 0.65em;
+    margin-right: 0.65em;
 }

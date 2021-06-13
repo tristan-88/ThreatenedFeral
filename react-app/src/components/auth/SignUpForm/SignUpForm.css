@@ -1,13 +1,13 @@
 .nav-sign-up{
-    font-family: fantasy;
+font-family: "Amatic", serif;
     font-size: x-large;
     color: white;
 	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
 		-1px -1px 0 black;
     font-weight: bolder;
     cursor: pointer;
-  margin-left: 10px;
-    margin-right: 10px;
+  margin-left: 0.5em;
+    margin-right: 0.5em;
     cursor: pointer;
 }
 
@@ -19,7 +19,7 @@
 
 .modal-body{
     text-align: end;
-    font-family: fantasy;
+   font-family: "Amatic", serif;
 }
 
 .modal-header {
@@ -59,7 +59,7 @@ background-color: black;
      color: white;
 	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
 		-1px -1px 0 black;
-    font-family: fantasy;
+font-family: "Amatic", serif;
 }
 
 

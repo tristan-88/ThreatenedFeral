@@ -14,6 +14,7 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 
 function SingleAnimalPage() {
+	//useSelector((state) =>  state.ReducerVariable/name.reducer.objectName
 	const { id } = useParams();
 	const dispatch = useDispatch();
 	const sessionUser = useSelector((state) => state.session.user);
@@ -97,7 +98,7 @@ function SingleAnimalPage() {
 				<ReactAudioPlayer
 					src={animal.call_cry}
 					// autoPlay="true"
-					controls="true"
+					controls={true}
 					className="audio-player"
 				/>
 			</div>
@@ -128,8 +129,8 @@ function SingleAnimalPage() {
 			<hr />
 			<div className="map-loc-container">
 				<h2>LOCATION</h2>
-				{animal.locations.map((location, idx) => (
-					<div key={idx}>
+				{animal.locations.map((location) => (
+					<div key={location.id}>
 						<div>
 							{`Name: ${location.location_name}
 								Lat: ${location.lat}
@@ -159,7 +160,7 @@ function SingleAnimalPage() {
 					<h2>EDUCATORS: </h2>
 				</div>
 				{animal.educator.map((edu) => (
-					<div className="edu-name-link" key={edu.key}>
+					<div className="edu-name-link" key={edu.id}>
 						<a href={edu.content_link} className="edu-link">
 							{edu.educator_name}
 						</a>
@@ -168,14 +169,17 @@ function SingleAnimalPage() {
 			</div>
 			<hr />
 			<div className="comments-container">
-				<h2 className="comment-h2">COMMENTS</h2>
+				<div className="comment-h2">
+					<h2 >COMMENTS</h2>
+				</div>
 
 				<CommentForm animalId={animal.id} className="comment-form" />
-
+				<div className="comment-border">
 				{Object.values(animal.comment)
 					.reverse()
 					.map((comment) => (
-						<div className="single-comment" key={comment.user.id}>
+					
+						<div className="single-comment" key={comment.id}>
 							<div className="user-name">Author: {comment.user.username}</div>
 							<div className="comment-content">Comment:{comment.content}</div>
 							{comment.user.id === sessionUser.id && (
@@ -209,7 +213,9 @@ function SingleAnimalPage() {
 								</div>
 							)}
 						</div>
+						
 					))}
+				</div>
 			</div>
 		</div>
 	);

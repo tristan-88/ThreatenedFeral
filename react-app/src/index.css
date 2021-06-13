@@ -8,5 +8,9 @@ a:hover{
 }
 
 #root{
-    font-family: fantasy;
+    font-family: "Amatic", serif;
+    background-color: #334352;
+    color: white;
+    font-size: 1.2em;
 }
+

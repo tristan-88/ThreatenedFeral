@@ -1,4 +1,4 @@
-.block {
+#block {
   position: relative;
   width: 100%;
   height: 102%;
@@ -18,8 +18,8 @@
 }
 
 
-.block:before,
-.block:after {
+#block:before,
+#block:after {
    background: linear-gradient(
     45deg,
     #0000,
@@ -31,25 +31,37 @@
     skyblue,
     #0ce20c,
     #ffff00,
-    #ffffff
-  );
+    #ffffff 
+  ) ;
   position: absolute;
   /* right:2px; */
   left: -2px;
   top: -2px;
  content: '';
-background-size: 400%;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px); 
-  z-index: -1; 
+background-size: 450%;
+  width: calc(100% + 5px);
+  height: calc(100% + 5px); 
+  z-index: 0; 
   animation: steam 20s linear infinite;
 }
 
 
+.map{
+  z-index: 20;
+  /* right:2px; */
+  /* left: -2px;
+  top: -2px; */
+ content: '';
+  /* width: calc(100% + 4px);
+  height: calc(100% + 4px);  */
+  position: absolute;
+  position: relative;
+  width: 90%;
+  height: 90%;
+}
 
 
 
-
-.block:after {
-  filter: blur(1px);
+#block:after {
+  filter: blur(.5em);
 }
