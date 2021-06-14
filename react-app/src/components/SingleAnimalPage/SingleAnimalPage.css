@@ -287,6 +287,7 @@ button.button-edit:hover span {
     width: 50%;
     padding: 10px 5px;
     font-size: 2em;
+  
 }
 
 li.alice-carousel__dots-item:not(.__custom) {
@@ -295,4 +296,15 @@ li.alice-carousel__dots-item:not(.__custom) {
     cursor: pointer;
     border-radius: 50%;
     background-color: #e0e4fb;
+}
+
+li.alice-carousel__dots-item:not(.__custom).__active, .alice-carousel__dots-item:not(.__custom):hover {
+    background-color: #FF7F11;
+}
+
+.alice-carousel__next-btn [data-area]:after, .alice-carousel__prev-btn [data-area]:after {
+    position: relative;
+    content: attr(data-area);
+    text-transform: capitalize;
+     color:  #FF7F11;
 }
