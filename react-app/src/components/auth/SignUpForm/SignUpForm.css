@@ -9,6 +9,7 @@ font-family: "Amatic", serif;
   margin-left: 0.5em;
     margin-right: 0.5em;
     cursor: pointer;
+    
 }
 
 .modal-content {
@@ -49,7 +50,7 @@ background-color: black;
 
 .button-sign-up{
     display: flex;
-    margin: 10px;
+    
 }
 
 .modal-title {
