@@ -92,7 +92,7 @@ button.button-cancel{
   font-weight: 500;
   letter-spacing: 0.7px;
    background-image: linear-gradient(45deg, white,  black);
-   margin: 0.8em;
+   margin-top: 0.8em;
 }
 button.close,
 button.button-log-in,

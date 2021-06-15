@@ -4,8 +4,9 @@
     margin-bottom: 20px;
     margin-left: 145px;
     margin-right: -75px; */
-    justify-content: space-evenly;
+    justify-content: center;
     max-height: 300px;
+    padding-top: 1em;
 }
 
 .nav-bar{
@@ -45,6 +46,7 @@
 .user-button-div,
 .home-button-div{
     align-self: center;
-    margin-left: 0.65em;
-    margin-right: 0.65em;
+    /* margin-left: 0.65em;
+    margin-right: 0.65em; */
+    padding: 0 10vw;
 }

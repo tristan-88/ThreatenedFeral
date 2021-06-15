@@ -72,7 +72,7 @@ function SingleAnimalPage() {
 	});
 
 	const items = [];
-	console.log(animal.photos, "PHOTOS");
+	// console.log(animal.photos, "PHOTOS");
 	for (let photo of animal?.photos) {
 		items.push(
 			<div className="animal-photo-container">
@@ -86,7 +86,7 @@ function SingleAnimalPage() {
 			</div>
 		);
 	}
-	console.log(items, "Current");
+	// console.log(items, "Current");
 
 	return (
 		<div className="single-page-container">

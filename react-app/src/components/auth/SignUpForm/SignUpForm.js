@@ -75,7 +75,7 @@ const SignUpForm = () => {
 		if (response.ok) {
 			history.push("/");
 		} else {
-			console.log(response, "REPONSE HERE!");
+			// console.log(response, "REPONSE HERE!");
 			alert("NO GOOD!!!");
 		}
 	};

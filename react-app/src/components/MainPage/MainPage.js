@@ -24,8 +24,8 @@ function MainPage() {
     const animals = useSelector((state) => state.animal.animals)
 
     //test console logs
-    console.log(animals);
-    console.log(animals, ' What is here?')
+    // console.log(animals);
+    // console.log(animals, ' What is here?')
 
     if (!animals) return null
     
@@ -53,10 +53,14 @@ function MainPage() {
 				{Object.values(animals).map((animal) => (
 					<div className="animal-card-container" key={animal.id}>
 						{sessionUser.fav_anim[animal.id] && (
-							<div onClick={() => handleUnfavorite(animal)}>UNFAVORITE ME</div>
+							<div onClick={() => handleUnfavorite(animal)}>
+							<i class="far fa-heart"></i>
+							</div>
 						)}
 						{!sessionUser.fav_anim[animal.id] && (
-							<div onClick={() => handleFavorite(animal)}>FAVORITE ME</div>
+							<div onClick={() => handleFavorite(animal)}>
+								<i class="fas fa-heart"></i>
+							</div>
 						)}
 						<NavLink to={`/animals/${animal.id}`}>
 							<div className="animal-name">{animal.name}</div>
