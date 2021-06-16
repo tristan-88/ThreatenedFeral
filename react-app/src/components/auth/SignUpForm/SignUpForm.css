@@ -1,166 +1,160 @@
-.nav-sign-up{
-font-family: "Amatic", serif;
-    font-size: x-large;
-    color: white;
+.nav-sign-up {
+	font-family: "Amatic", serif;
+	font-size: x-large;
+	color: white;
 	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
 		-1px -1px 0 black;
-    font-weight: bolder;
-    cursor: pointer;
-  margin-left: 0.5em;
-    margin-right: 0.5em;
-    cursor: pointer;
-    
+	font-weight: bolder;
+	cursor: pointer;
+	padding: 0 10vw;
 }
 
 .modal-content {
-    display: flex;
-    align-items: center;
-    color: white;
+	display: flex;
+	align-items: center;
+	color: white;
 }
 
-.modal-body{
-    text-align: end;
-   font-family: "Amatic", serif;
+.modal-body {
+	text-align: end;
+	font-family: "Amatic", serif;
 }
 
 .modal-header {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 1rem;
-    border-bottom: 1px solid #dee2e6;
-    border-top-left-radius: calc(.3rem - 1px);
-    border-top-right-radius: calc(.3rem - 1px);
-    padding: 20px;
-    align-self: stretch;
-    
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 1rem;
+	border-bottom: 1px solid #dee2e6;
+	border-top-left-radius: calc(0.3rem - 1px);
+	border-top-right-radius: calc(0.3rem - 1px);
+	padding: 20px;
+	align-self: stretch;
 }
 
-.form-border{
-    border: 1px solid  black;
-    padding: 10px;
-    width: 450px;
-    /* height: 450px; */
-    display: inline-block;
-    margin: 10px;
-    text-align: -webkit-right;
-background-color: black;
+.form-border {
+	border: 1px solid black;
+	padding: 10px;
+	width: 450px;
+	/* height: 450px; */
+	display: inline-block;
+	margin: 10px;
+	text-align: -webkit-right;
+	background-color: black;
 }
 
-.button-sign-up{
-    display: flex;
-    
+.button-sign-up {
+	display: flex;
 }
 
 .modal-title {
-    margin-bottom: 0;
-    line-height: 1.5;
-    margin-right: 30px;
-     color: white;
+	margin-bottom: 0;
+	line-height: 1.5;
+	margin-right: 30px;
+	color: white;
 	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
 		-1px -1px 0 black;
-font-family: "Amatic", serif;
+	font-family: "Amatic", serif;
 }
-
 
 button.close,
 button.button-sign-up,
 button.button-cancel {
-  position: relative;
-  outline: none;
-  text-decoration: none;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  height: 30px;
-  width: 100px;
-  opacity: 1;
-  background-color: #ffffff;
-  border: 1px outset white;
+	position: relative;
+	outline: none;
+	text-decoration: none;
+	border-radius: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	text-transform: uppercase;
+	height: 30px;
+	width: 100px;
+	opacity: 1;
+	background-color: #ffffff;
+	border: 1px outset white;
 }
 .input-file,
 button.close,
 button.button-sign-up,
-button.button-cancel{
-  color: white;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.7px;
-   background-image: linear-gradient(45deg, white,  black);
+button.button-cancel {
+	color: white;
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.7px;
+	background-image: linear-gradient(45deg, white, black);
 }
 button.close,
 button.button-sign-up,
 button.button-cancel:hover {
-  animation: rotate 0.7s ease-in-out both;
+	animation: rotate 0.7s ease-in-out both;
 }
 button.close,
 button.button-sign-up,
 button.button-cancel:hover span {
-  animation: storm 0.7s ease-in-out both;
-  animation-delay: 0.06s;
+	animation: storm 0.7s ease-in-out both;
+	animation-delay: 0.06s;
 }
 
 @keyframes rotate {
-  0% {
-    transform: rotate(0deg) translate3d(0, 0, 0);
-  }
-  25% {
-    transform: rotate(3deg) translate3d(0, 0, 0);
-  }
-  50% {
-    transform: rotate(-3deg) translate3d(0, 0, 0);
-  }
-  75% {
-    transform: rotate(1deg) translate3d(0, 0, 0);
-  }
-  100% {
-    transform: rotate(0deg) translate3d(0, 0, 0);
-  }
+	0% {
+		transform: rotate(0deg) translate3d(0, 0, 0);
+	}
+	25% {
+		transform: rotate(3deg) translate3d(0, 0, 0);
+	}
+	50% {
+		transform: rotate(-3deg) translate3d(0, 0, 0);
+	}
+	75% {
+		transform: rotate(1deg) translate3d(0, 0, 0);
+	}
+	100% {
+		transform: rotate(0deg) translate3d(0, 0, 0);
+	}
 }
 @keyframes storm {
-  0% {
-    transform: translate3d(0, 0, 0) translateZ(0);
-  }
-  25% {
-    transform: translate3d(4px, 0, 0) translateZ(0);
-  }
-  50% {
-    transform: translate3d(-3px, 0, 0) translateZ(0);
-  }
-  75% {
-    transform: translate3d(2px, 0, 0) translateZ(0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0) translateZ(0);
-  }
+	0% {
+		transform: translate3d(0, 0, 0) translateZ(0);
+	}
+	25% {
+		transform: translate3d(4px, 0, 0) translateZ(0);
+	}
+	50% {
+		transform: translate3d(-3px, 0, 0) translateZ(0);
+	}
+	75% {
+		transform: translate3d(2px, 0, 0) translateZ(0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0) translateZ(0);
+	}
 }
 
-.button-close{
-    width: 50px;
+.button-close {
+	width: 50px;
 }
 
 /* div{
     margin: 10px;
 } */
 
-label{
-    margin: 5px;
+label {
+	margin: 5px;
 }
 
-.modal-content{
-    background-color: black;
+.modal-content {
+	background-color: black;
 }
 
-input#file-upload-button{
-    padding-top: 2px;
-    font-size:medium;
-    color: white;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.7px;
-   background-image: linear-gradient(45deg, white,  black);
+input#file-upload-button {
+	padding-top: 2px;
+	font-size: medium;
+	color: white;
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.7px;
+	background-image: linear-gradient(45deg, white, black);
 }

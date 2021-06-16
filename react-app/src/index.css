@@ -1,7 +1,9 @@
 /* TODO Add site wide styles */
-a, button{
-    cursor: pointer;
+a{
+    cursor: pointer !important;
 }
+
+
 
 a:hover{
     color: unset !important;
