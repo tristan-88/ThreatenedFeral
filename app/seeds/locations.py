@@ -41,6 +41,13 @@ def seed_locations():
     db.session.add(location_5)
     db.session.commit()
     
+    location_6 = Location(
+        lat= -4.9276,
+        lng= 105.7769,
+        location_name= "Way Kambas National Park"
+    )
+    db.session.add(location_6)
+    db.session.commit()
     
     
 

@@ -75,8 +75,8 @@ const MapComponent = ({ locations }) => {
 	};
 
 	const defaultCenter = {
-		lat: 38.929616,
-		lng: -77.049784,
+		lat: locations[0].location.lat,
+		lng: locations[0].location.lng
 	};
 
 	//gets a lng and lat from string address
@@ -100,7 +100,7 @@ const MapComponent = ({ locations }) => {
 	// 		console.log(e);
 	// 	});
 
-
+	
 
 	
 
@@ -135,7 +135,7 @@ const MapComponent = ({ locations }) => {
 										clickable={true}
 										onCloseClick={() => setSelected({})}
 									>
-										<p>{selected.name}</p>
+										<p className="location-name">{selected.name}</p>
 									</InfoWindow>
 								)}
 							</GoogleMap>

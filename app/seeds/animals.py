@@ -132,6 +132,24 @@ def seed_animals():
      
      db.session.add(animal_6)
      db.session.commit()
+     
+     animal_7 = Animal(
+         name='Sumatran elephants',
+         description=''' 
+            Sumatran elephants feed on a variety of plants and deposit seeds wherever they go, contributing to a healthy forest ecosystem. They also share their lush forest habitat with several other endangered species, such as the Sumatran rhino, tiger, and orangutan, and countless other species that all benefit from an elephant population that thrives in a healthy habitat.''',
+         fact_1="Status:Critically Endangered",
+         fact_2="Weight: approximately 5 tons",
+         fact_3="Scienific name:Elephas maximus sumatranus",
+         fact_4="Length: 5-9 feet at the shoulder",
+         fact_5="Habitats:Broadleaf moist tropical forests",
+         fact_6="Population: 2,400 – 2,800 ",
+         threats='''In 2012, the Sumatran elephant was changed from “Endangered” to “Critically Endangered” because half of its population has been lost in one generation—a decline that is largely due to habitat loss and as a result human-elephant conflict. Sumatra has experienced one of the highest rates of deforestation within the Asian elephant’s range, which has resulted in local extinctions of elephants in many areas. Over two-thirds of its natural lowland forest has been razed in the past 25 years and nearly 70 percent of the Sumatran elephant’s habitat has been destroyed in one generation. In Sumatra’s Riau province, pulp and paper industries and oil palm plantations have caused some of the world’s most rapid rates of deforestation. Elephant numbers have declined by a staggering 80 percent in less than 25 years, confining some herds to small forest patches. These populations are not likely to survive in the long-term. The Lampung province has seen its number of elephant herds decline from twelve in the 1980s to only three by 2002. Just two of the remaining herds are considered biologically viable. As a result of the rapid development and deforestation in Sumatra, elephants often come into contact with human settlements. They raid crops, trample homes and sometimes even hurt or kill people. Those affected sometimes retaliate and poison or shoot elephants.Sumatran elephants typically have smaller tusks but they are enough to tempt poachers who kill the animals and sell their tusks on the illegal ivory market. Only male Asian elephants have tusks so every poaching event further skews the sex ratio further constraining breeding rates for the species.''',
+         call_cry='https://dight310.byu.edu/media/audio/FreeLoops.com/3/3/Elephant%20Sound.wav-22188-Free-Loops.com.mp3'
+     )
+
+     db.session.add(animal_7)
+     db.session.commit()
+
 
 
 

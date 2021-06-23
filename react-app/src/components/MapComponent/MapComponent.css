@@ -65,3 +65,7 @@ background-size: 450%;
 #block:after {
   filter: blur(.5em);
 }
+
+.location-name{
+  color: black;
+}

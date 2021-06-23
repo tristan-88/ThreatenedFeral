@@ -10,7 +10,7 @@ def seed_comments():
         connection = Comment(
             content=faker.sentence(),
             user_id = faker.pyint(min_value=1, max_value=11),
-            animal_id = faker.pyint(min_value=1, max_value=6)
+            animal_id = faker.pyint(min_value=1, max_value=7)
             
         )
         db.session.add(connection)

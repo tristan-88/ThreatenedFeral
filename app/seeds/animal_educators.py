@@ -7,7 +7,7 @@ faker = Faker()
 def seed_animal_educators():
     for i in range(25):
         connection = Animal_Educator(
-            animal_id = faker.pyint(min_value=1, max_value=6),
+            animal_id = faker.pyint(min_value=1, max_value=7),
             educator_id = faker.pyint(min_value=1, max_value=7)
         )
         db.session.add(connection)

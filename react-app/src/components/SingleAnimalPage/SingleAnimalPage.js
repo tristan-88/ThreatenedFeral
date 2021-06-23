@@ -129,8 +129,8 @@ function SingleAnimalPage() {
 			<hr />
 			<div className="map-loc-container">
 				<h2>LOCATION</h2>
-				{animal.locations.map((location) => (
-					<div key={location.id}>
+				{animal.locations.map((location, index) => (
+					<div key={index}>
 						<div>
 							{`Name: ${location.location_name}
 								Lat: ${location.lat}
@@ -146,8 +146,8 @@ function SingleAnimalPage() {
 				<div className="top-title">
 					<h2>NON-PROFIT ORGANIZATIONS: </h2>
 				</div>
-				{animal.org.map((org) => (
-					<div className="org-name-link" key={org.id}>
+				{animal.org.map((org, index) => (
+					<div className="org-name-link" key={index}>
 						<a href={org.non_profit_link} className="org-link">
 							{org.non_profit_name}
 						</a>
@@ -159,8 +159,8 @@ function SingleAnimalPage() {
 				<div className="top-title">
 					<h2>EDUCATORS: </h2>
 				</div>
-				{animal.educator.map((edu) => (
-					<div className="edu-name-link" key={edu.id}>
+				{animal.educator.map((edu, index) => (
+					<div className="edu-name-link" key={index}>
 						<a href={edu.content_link} className="edu-link">
 							{edu.educator_name}
 						</a>

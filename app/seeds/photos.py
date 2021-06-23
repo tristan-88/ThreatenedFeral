@@ -169,6 +169,34 @@ def seed_photos():
     )
     db.session.add(photo_18)
     db.session.commit()
+    
+    photo_19 = Photo(
+        photo_url='https://c402277.ssl.cf1.rackcdn.com/photos/1686/images/story_full_width/MID_247516.jpg?1345550776',
+        photo_description="Sumatran elephants feed on a variety of plants and deposit seeds wherever they go, contributing to a healthy forest ecosystem.",
+        animal_id=7
+
+    )
+    db.session.add(photo_19)
+    db.session.commit()
+    
+    photo_20 = Photo(
+        photo_url='https://a-z-animals.com/media/sumatran-elephant-2.jpg',
+        photo_description="Sumatran elephants are highly intelligent animals and they also have an excellent memory. Elephants need lots of land area to thrive and prefer lowland environments.",
+        animal_id=7
+
+    )
+    db.session.add(photo_20)
+    db.session.commit()
+    
+    photo_21 = Photo(
+        photo_url='https://www.aboutanimals.com/images/sumatran-elephants-in-jungle-habitat-820x506.jpg?c14113',
+        photo_description="The female of the species rarely has tusks. If they do, they are small and hidden.",
+        animal_id=7
+
+    )
+    db.session.add(photo_21)
+    db.session.commit()
+    
 
 def undo_photos():
     db.session.execute("TRUNCATE photos RESTART IDENTITY CASCADE;")

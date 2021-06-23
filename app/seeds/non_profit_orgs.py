@@ -40,6 +40,14 @@ def seed_non_profit_orgs():
     db.session.add(connection_4)
     db.session.commit()
     
+    connection_5 = Non_Profit_Org(
+        non_profit_name="Sumatran Elephant Project",
+        non_profit_link="https://www.sumatranelephantproject.org/",
+        animal_id=7
+    )
+    db.session.add(connection_5)
+    db.session.commit()
+    
 def undo_non_profit_orgs():
     db.session.execute("TRUNCATE non_profit_orgs RESTART IDENTITY CASCADE;")
     db.session.commit()

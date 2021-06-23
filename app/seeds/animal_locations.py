@@ -78,6 +78,13 @@ def seed_animal_locations():
     db.session.add(location_11)
     db.session.commit()
     
+    location_12 = Animal_Location(
+        animal_id= 7,
+        location_id= 6,
+    )
+    db.session.add(location_12)
+    db.session.commit()
+    
 def undo_animal_locations():
      db.session.execute("TRUNCATE animal_locations RESTART IDENTITY CASCADE;")
      db.session.commit()
