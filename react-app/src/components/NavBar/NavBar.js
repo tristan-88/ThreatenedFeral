@@ -78,10 +78,6 @@ const NavBar = () => {
 					<LogoutButton />
 				</>
 			)}
-
-			<div></div>
-			{/* </div> */}
-			{/* </nav> */}
 		</div>
 	);
 };

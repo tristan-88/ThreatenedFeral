@@ -54,12 +54,12 @@ function MainPage() {
 					<div className="animal-card-container" key={animal.id}>
 						{sessionUser.fav_anim[animal.id] && (
 							<div onClick={() => handleUnfavorite(animal)}>
-							<i class="far fa-heart"></i>
+							<i className="far fa-heart"></i>
 							</div>
 						)}
 						{!sessionUser.fav_anim[animal.id] && (
 							<div onClick={() => handleFavorite(animal)}>
-								<i class="fas fa-heart"></i>
+								<i className="fas fa-heart"></i>
 							</div>
 						)}
 						<NavLink to={`/animals/${animal.id}`}>

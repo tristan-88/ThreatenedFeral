@@ -1,47 +1,38 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { BrowserRouter, Route, Switch} from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm/SignUpForm";
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
 import SplashPage from "./components/SplashPage/SplashPage";
 import MainPage from "./components/MainPage/MainPage";
 import User from "./components/User/User";
 import SingleAnimalPage from "./components/SingleAnimalPage/SingleAnimalPage";
 import Footer from "./components/Footer/Footer";
-// import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 
 function App() {
-	const user = useSelector((state) => state.session?.user);
-	const history = useHistory();
-
+	
 	// const [authenticated, setAuthenticated] = useState(false);
-	const dispatch = useDispatch();
-	const [loaded, setLoaded] = useState(false);
+	const dispatch = useDispatch(); //return a function will allow dispatch function to the redux store after dispatch
+	const [loaded, setLoaded] = useState(false); //usestate - creates local state similar to useContext for the specific component 
 
 	useEffect(() => {
+		//useeffect - runs ones when component initially loads run the function inside. 
 		(async () => {
 			await dispatch(authenticate());
 			setLoaded(true);
 		})();
 	}, [dispatch]);
-
+	//dependency array every time something changes inside here the useeffect will run again 
 	if (!loaded) {
 		return null;
 	}
 
-	// if (!user) {
-	// 	if (history) {
-	// 	history.push("/")	
-	// 	}
-		
-	// }
+	
 
 	return (
 		<BrowserRouter>
@@ -53,9 +44,6 @@ function App() {
 				<Route path="/sign-up" exact={true}>
 					<SignUpForm />
 				</Route>
-				{/* <ProtectedRoute path="/users" exact={true}>
-					<User/>
-				</ProtectedRoute> */}
 				<ProtectedRoute path="/users/:id" exact={true}>
 					<User />
 				</ProtectedRoute>

@@ -70,6 +70,7 @@ export const authenticate = () => async (dispatch) => {
     
 }
 
+
 export const demoLogin = () => async (dispatch) => {
     const response = await fetch('/api/auth/login', {
         method: "POST",

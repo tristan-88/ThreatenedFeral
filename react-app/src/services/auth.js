@@ -1,12 +1,3 @@
-export const authenticate = async() => {
-  const response = await fetch('/api/auth/',{
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  });
-  return await response.json();
-}
-
 export const login = async (email, password) => {
   const response = await fetch('/api/auth/login', {
     method: 'POST',

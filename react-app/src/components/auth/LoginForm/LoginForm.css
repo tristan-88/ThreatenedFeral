@@ -48,7 +48,7 @@ background-color: black;
 
 .button-sign-up{
     display: flex;
-    margin: 10px;
+    
 }
 
 .modal-title {
@@ -161,3 +161,7 @@ demo_login_container{
   flex-direction: column;
 }
 
+h2.question-form {
+    display: flex;
+    justify-content: center;
+}

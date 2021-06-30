@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../../store/session";
 import { Modal } from "react-bootstrap";
+import DemoButton from "../DemoButton/DemoButton";
+import LoginForm from '../LoginForm/LoginForm'
 import "./SignUpForm.css";
 
 const SignUpForm = () => {
@@ -255,11 +257,16 @@ const SignUpForm = () => {
 								</form>
 							</div>
 						</div>
-						<button className="button-sign-up" type="submit">
+						<div className="form-buttons">
+							<button className="button-sign-up" type="submit">
 							Sign Up
 						</button>
+							<DemoButton />
+						</div>
+						
 					</form>
 					<Modal.Footer>
+						<div><h2 className="question-form">Have an acount?</h2><LoginForm/></div>
 						<button className="button-cancel" onClick={() => setShow(false)}>
 							cancel
 						</button>

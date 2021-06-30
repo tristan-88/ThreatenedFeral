@@ -17,10 +17,11 @@ if (process.env.NODE_ENV !== "production") {
   window.dispatch = store.dispatch
   window.getDirections = getDirections
 }
-
+//Provider- component passes down global store
+//ReactDOM.render - first parameter replaces the what in the second parameter
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={store}> 
       <App />
     </Provider>
   </React.StrictMode>,

@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { login } from "../../../store/session";
 import DemoButton from "../DemoButton/DemoButton";
 import { Modal } from "react-bootstrap";
+import SignUpForm from "../SignUpForm/SignUpForm";
 import "./LoginForm.css";
 
 const LoginForm = () => {
@@ -89,6 +90,7 @@ const LoginForm = () => {
 						</div>
 					</form>
 					<Modal.Footer>
+						<div><h2 className="question-form">Do not have an account?</h2><SignUpForm /></div>
 						<button className="button-cancel" onClick={() => setShow(false)}>
 							cancel
 						</button>
