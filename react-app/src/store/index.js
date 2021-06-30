@@ -3,12 +3,14 @@ import thunk from 'redux-thunk';
 import session from './session'
 import animal from './animal'
 import editForm from './editForm'
+import modalReducer from "./modal";
 
-
+//be more implicit about reducer naming convention instead of animal => animalReducer
 const rootReducer = combineReducers({
     session,
     animal,
     editForm, //corresponds to the slice of state
+    modalReducer
 });
 
 let enhancer;

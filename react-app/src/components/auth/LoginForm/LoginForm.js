@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../../store/session";
@@ -6,14 +6,26 @@ import DemoButton from "../DemoButton/DemoButton";
 import { Modal } from "react-bootstrap";
 import SignUpForm from "../SignUpForm/SignUpForm";
 import "./LoginForm.css";
+import * as modalAction from "../../../store/modal"
 
 const LoginForm = () => {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.session.user);
+	const modalLogIn = useSelector((state) => state.modalReducer.showLogIn)
+	const modalSignUp = useSelector((state)=> state.modalReducer.showSignUp)
 	const [errors, setErrors] = useState([]);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [show, setShow] = useState(false);
+	const { showLogIn, showSignUp, hideLogIn, hideSignUp } = modalAction
+	
+	useEffect(() => {
+		if (modalLogIn === false) {
+			setShow(false)
+		} else if (modalLogIn === true) {
+			setShow(true)
+		}
+	},[modalLogIn])
 
 	const onLogin = async (e) => {
 		e.preventDefault();
@@ -22,6 +34,19 @@ const LoginForm = () => {
 			setErrors(data.errors);
 		}
 	};
+
+	const modalToggle = () => {
+		
+		dispatch(showLogIn())
+		dispatch(hideSignUp())
+		
+	}
+
+	const cancelAll = () => {
+	
+		dispatch(hideLogIn())
+		dispatch(hideSignUp())
+	}
 
 	const updateEmail = (e) => {
 		setEmail(e.target.value);
@@ -37,12 +62,12 @@ const LoginForm = () => {
 
 	return (
 		<div>
-			<div onClick={() => setShow(true)} className="nav-log-in">
+			<div onClick={modalToggle} className="nav-log-in">
 				Log In
 			</div>
 			<Modal
 				show={show}
-				onHide={() => setShow(false)}
+				onHide={cancelAll}
 				backdrop="static"
 				keyboard={false}
 			>
@@ -91,7 +116,7 @@ const LoginForm = () => {
 					</form>
 					<Modal.Footer>
 						<div><h2 className="question-form">Do not have an account?</h2><SignUpForm /></div>
-						<button className="button-cancel" onClick={() => setShow(false)}>
+						<button className="button-cancel" onClick={cancelAll}>
 							cancel
 						</button>
 					</Modal.Footer>
