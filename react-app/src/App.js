@@ -12,7 +12,7 @@ import SingleAnimalPage from "./components/SingleAnimalPage/SingleAnimalPage";
 import Footer from "./components/Footer/Footer";
 import { authenticate } from "./store/session";
 import "bootstrap/dist/css/bootstrap.min.css";
-require("dotenv").config();
+
 
 function App() {
 	
