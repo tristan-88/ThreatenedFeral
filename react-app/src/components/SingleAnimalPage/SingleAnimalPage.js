@@ -4,7 +4,7 @@ import { NavLink, useParams, Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import { getAnimals, singleAnimal, deletingComment } from "../../store/animal";
 import { showForm, hideForm } from "../../store/editForm";
-import MapComponent from "../MapComponent/MapComponent";
+// import MapComponent from "../MapComponent/MapComponent";
 import ReactAudioPlayer from "react-audio-player";
 import CarouselComponent from "../Carousel/Carousel";
 import "./SingleAnimalPage.css";
@@ -139,7 +139,7 @@ function SingleAnimalPage() {
 						</div>
 					</div>
 				))}
-				<MapComponent className="map-component" locations={locations} />
+				{/* <MapComponent className="map-component" locations={locations} /> */}
 			</div>
 			<hr />
 			<div className="non-profit_container">
