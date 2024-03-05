@@ -170,6 +170,5 @@
     "presets": [
       "react-app"
     ]
-  },
-  "build": "CI=false && react-scripts build"
+  }
 }
