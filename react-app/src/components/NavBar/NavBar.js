@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { NavLink  } from "react-router-dom";
+import { useSelector } from "react-redux";
 import LogoutButton from "../auth/LogoutButton/LogoutButton";
 import Modal from "react-modal";
 import LoginForm from '../auth/LoginForm/LoginForm'
@@ -12,15 +12,15 @@ Modal.setAppElement(document.getElementById("root"));
 
 const NavBar = () => {
    const user = useSelector((state) => state.session?.user);
-	const [modelOpen, setModalOpen] = useState(false)
+	// const [modelOpen, setModalOpen] = useState(false)
 
-	const openModal = () => {
-		setModalOpen(true)
-	}
+	// const openModal = () => {
+	// 	setModalOpen(true)
+	// }
 
-	const closeModal = () => {
-		setModalOpen(false)
-	}
+	// const closeModal = () => {
+	// 	setModalOpen(false)
+	// }
 
 	return (
 		<div className="nav-container">

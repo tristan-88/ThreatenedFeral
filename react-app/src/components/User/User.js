@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {useSelector, useDispatch} from "react-redux"
+import { useSelector } from "react-redux"
 import { useParams, NavLink } from "react-router-dom";
 import './User.css'
 
 function User() {
-  const dispatch = useDispatch()
   const [user, setUser] = useState({});
   // Notice we use useParams here instead of getting the params
   // From props.

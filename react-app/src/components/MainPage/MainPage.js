@@ -3,11 +3,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import './MainPage.css';
 import { getAnimals } from '../../store/animal';
 import {favoritingAnimal, unfavoritingAnimal} from '../../store/session'
-import { useHistory } from 'react-router';
 import {NavLink} from 'react-router-dom'
 
 function MainPage() {
-    const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user)
    

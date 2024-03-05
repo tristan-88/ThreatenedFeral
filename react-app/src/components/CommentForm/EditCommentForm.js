@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+
 import { hideForm } from '../../store/editForm'
 import { editingComment } from '../../store/animal'
 import "./CommentForm.css";
 
 const EditCommentForm = ({comment}) => {
 	const dispatch = useDispatch();
-	const animal = useSelector((state) => state.animal.currentAnimal);
-	const sessionUser = useSelector((state) => state.session.user);
 	const [currentComment, setCurrentComment] = useState(comment.content);
 
 	const handleSubmit = async (e) => {

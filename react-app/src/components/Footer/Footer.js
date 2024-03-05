@@ -6,7 +6,7 @@ function Footer() {
 		<>
 			<div className="footer-container">
 				<div className="githubLink">
-					<a href="https://github.com/tristan-88" target="_blank">
+					<a href="https://github.com/tristan-88" target="_blank" rel="noreferrer">
 						<i className ="fab fa-github-alt"></i>
 					</a>
 				</div>
@@ -14,13 +14,13 @@ function Footer() {
 				<div className="linkedinLink">
 					<a
 						href="https://www.linkedin.com/in/tristan-san-juan-75337920b/"
-						target="_blank"
+						target="_blank" rel="noreferrer"
 					>
 						<i className ="fab fa-linkedin"></i>
 					</a>
 				</div>
 				<div className="porfolio-link">
-					<a href="https://tristan-88.github.io/" target="_blank">
+					<a href="https://tristan-88.github.io/" target="_blank" rel="noreferrer">
 						<i className ="fas fa-user-secret"></i>
 					</a>
 				</div>

@@ -12,12 +12,11 @@ const LoginForm = () => {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.session.user);
 	const modalLogIn = useSelector((state) => state.modalReducer.showLogIn)
-	const modalSignUp = useSelector((state)=> state.modalReducer.showSignUp)
 	const [errors, setErrors] = useState([]);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [show, setShow] = useState(false);
-	const { showLogIn, showSignUp, hideLogIn, hideSignUp } = modalAction
+	const { showLogIn, hideLogIn, hideSignUp } = modalAction
 	
 	useEffect(() => {
 		if (modalLogIn === false) {

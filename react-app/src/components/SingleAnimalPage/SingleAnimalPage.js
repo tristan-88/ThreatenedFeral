@@ -1,12 +1,11 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useParams, Link } from "react-router-dom";
-import { useHistory } from "react-router";
+import { useParams } from "react-router-dom";
 import { getAnimals, singleAnimal, deletingComment } from "../../store/animal";
 import { showForm, hideForm } from "../../store/editForm";
 // import MapComponent from "../MapComponent/MapComponent";
 import ReactAudioPlayer from "react-audio-player";
-import CarouselComponent from "../Carousel/Carousel";
 import "./SingleAnimalPage.css";
 import EditCommentForm from "../CommentForm/EditCommentForm";
 import CommentForm from "../CommentForm/CommentForm";
@@ -21,7 +20,6 @@ function SingleAnimalPage() {
 	const editFormStatus = useSelector((state) => state.editForm.showEditForm);
 	const [render, setRender] = useState(true);
 	const [editId, setEditId] = useState(0);
-	const animals = useSelector((state) => state.animal.animals);
 	const animal = useSelector((state) => state.animal?.currentAnimal);
 	const handleDrag = (e) => e.preventDefault();
 	const handleEdit = (comment) => {
@@ -55,12 +53,13 @@ function SingleAnimalPage() {
 			dispatch(getAnimals());
 			dispatch(singleAnimal(id));
 		}
-	}, [dispatch]);
+	}, [dispatch, id, sessionUser]);
 
 	if (!animal) return "loading";
 
 	//dynamically push the location from locations table affiliated with the animal
 	const locations = [];
+	// eslint-disable-next-line array-callback-return
 	animal.locations.map((animal) => {
 		locations.push({
 			name: animal.location_name,

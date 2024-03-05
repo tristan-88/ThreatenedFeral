@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, useHistory, Redirect} from "react-router-dom";
+import { useHistory, Redirect} from "react-router-dom";
 import ReactPlayer from "react-player";
 import "./SplashPage.css";
-import { getAnimals } from "../../store/animal";
+import {  } from "../../store/animal";
 import LoginForm from "../auth/LoginForm/LoginForm";
 import SignUpForm from "../auth/SignUpForm/SignUpForm";
 
@@ -11,7 +11,6 @@ function SplashPage() {
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const sessionUser = useSelector((state) => state.session.user);
-	const animals = useSelector((state) => state.session.animals);
 	if (sessionUser) {
 		history.push("/main")
 	}

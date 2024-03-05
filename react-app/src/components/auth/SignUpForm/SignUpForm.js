@@ -12,7 +12,6 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
-  const modalLogIn = useSelector((state) => state.modalReducer.showLogIn);
   const modalSignUp = useSelector((state) => state.modalReducer.showSignUp);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -24,7 +23,7 @@ const SignUpForm = () => {
   const [zipcode, setZipcode] = useState("");
   const [avatar_url, setAvatar_Url] = useState("");
   const [show, setShow] = useState(false);
-  const { showLogIn, showSignUp, hideLogIn, hideSignUp } = modalAction;
+  const { showSignUp, hideLogIn, hideSignUp } = modalAction;
 
 	useEffect(() => {
 		if (modalSignUp === false) {
