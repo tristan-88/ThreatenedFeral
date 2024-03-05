@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
 
-from .models import db, Animal_Location, Animal, Animal_Educator, Comment, Educator, Favorite_Animal_List, Favorite_Educator_List, Location, Non_Profit_Org, Photo, User
+from .models import db, environment, SCHEMA, add_prefix_for_prod, Animal_Location, Animal, Animal_Educator, Comment, Educator, Favorite_Animal_List, Favorite_Educator_List, Location, Non_Profit_Org, Photo, User
 
 #routes
 from .api.user_routes import user_routes

@@ -3,14 +3,13 @@ from sqlalchemy.orm import relationship
 
 class Animal_Location(db.Model):
     __tablename__ = "animal_locations"
-    if environment == "production":
-        __table_args__ = {f"schema: {SCHEMA}"}
     
     id= db.Column(db.Integer, primary_key=True)
     animal_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("animals.id")))
     location_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("locations.id")))
     
-    
+    if environment == "production":
+        __table_args__ = {f"schema: {SCHEMA}"}
     
     def to_dict(self):
         return{

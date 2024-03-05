@@ -3,12 +3,14 @@ from sqlalchemy.orm import relationship
 
 class Favorite_Animal_List(db.Model):
     __tablename__ = "favorite_animal_lists"
-    if environment == "production":
-        __table_args__ = {f"schema: {SCHEMA}"}
+    
     
     id = db.Column(db.Integer, primary_key=True)
     animal_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("animals.id")))
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+    
+    if environment == "production":
+        __table_args__ = {f"schema: {SCHEMA}"}
     
     def to_dict(self):
         return{
