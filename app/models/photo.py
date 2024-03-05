@@ -3,6 +3,8 @@ from sqlalchemy.orm import relationship
 
 class Photo(db.Model):
     __tablename__ = "photos"
+    if environment == "production":
+        __table_args__ = {'schema': f"{SCHEMA}"}
     
     id = db.Column(db.Integer, primary_key=True)
     photo_url = db.Column(db.String)
@@ -12,8 +14,7 @@ class Photo(db.Model):
     
     #asssociation
     # photo_animal = relationship("Animal", backref="animal_photo", cascade="all, delete")
-    if environment == "production":
-        __table_args__ = {f"schema: {SCHEMA}"}
+    
     
     def to_dict(self):
         return{

@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 class Comment(db.Model):
     __tablename__ = "comments"
     if environment == "production":
-        __table_args__ = {f"schema: {SCHEMA}"}
+        __table_args__ = {'schema': f"{SCHEMA}"}
     
     id= db.Column(db.Integer, primary_key=True)
     content = db.Column(db.Text)

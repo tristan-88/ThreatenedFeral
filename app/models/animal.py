@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 class Animal(db.Model):
     __tablename__ = "animals"
     if environment == "production":
-        __table_args__ = {f"schema: {SCHEMA}"}
+        __table_args__ = {'schema': f"{SCHEMA}"}
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)

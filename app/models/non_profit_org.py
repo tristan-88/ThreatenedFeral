@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 class Non_Profit_Org(db.Model):
     __tablename__ = "non_profit_orgs"
     if environment == "production":
-        __table_args__ = {f"schema: {SCHEMA}"}
+        __table_args__ = {'schema': f"{SCHEMA}"}
     
     id = db.Column(db.Integer, primary_key=True)
     non_profit_name = db.Column(db.String)
