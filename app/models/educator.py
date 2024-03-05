@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 class Educator(db.Model):
     __tablename__ = "educators"
     if environment == "production":
-        __table_args__ = {'schema': f"{SCHEMA}"} = {f"schema: {SCHEMA}"}
+        __table_args__ = {'schema': f"{SCHEMA}"}
     
     id = db.Column(db.Integer, primary_key=True)
     educator_name = db.Column(db.String(100), nullable=False)
