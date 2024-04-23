@@ -44,7 +44,7 @@
     display: inline-block;
     margin: 10px;
     text-align: -webkit-right;
-background-color: black;
+/* background-color: black; */
 }
 
 .button-sign-up{
