@@ -17,7 +17,7 @@ function MainPage() {
         
         }
         
-    }, [dispatch])
+    }, [dispatch, sessionUser])
 
     const animals = useSelector((state) => state.animal.animals)
 
@@ -67,6 +67,7 @@ function MainPage() {
 									<img
 										src={animal.photos[0].photo_url}
 										className="animal-image"
+										alt='animal'
 									/>
 								</NavLink>
 							</div>

@@ -61,9 +61,11 @@ function User() {
 						<div className="animal-name">{animal.name}</div>
 						<div>
 							<NavLink to={`/animals/${animal.id}`}>
+							 {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
 								<img
 									src={animal.photos[0].photo_url}
-									className="animal-image"
+                    className="animal-image"
+                    alt="no-image"
                   />
                 </NavLink>
 						</div>

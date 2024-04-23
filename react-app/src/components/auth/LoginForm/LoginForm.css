@@ -57,8 +57,8 @@ background-color: black;
     line-height: 1.5;
     margin-right: 30px;
      color: white;
-	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
-		-1px -1px 0 black;
+	/* text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
+		-1px -1px 0 black; */
   font-family: "Amatic", serif;
 }
 
@@ -153,9 +153,9 @@ label{
     margin: 5px;
 }
 
-.modal-content{
+/* .modal-content{
     background-color: black;
-}
+} */
 
 demo_login_container{
   display: flex;

@@ -2,7 +2,7 @@ const SET_ANIMALS = 'animals/SET_ANIMALS';
 const GET_ANIMAL = "animal/GET_ANIMAL;";
 const DELETE_COMMENT = 'comment/DELETE_COMMENT';
 const EDIT_COMMENT = 'comment/EDIT_COMMENT';
-const POST_COMMENT = 'comment/POST_COMMENT';
+// const POST_COMMENT = 'comment/POST_COMMENT';
 
 const setAnimals = (animals) => ({
     type: SET_ANIMALS,
@@ -14,10 +14,10 @@ const getAnimal = (animal) => ({
     payload: animal
 })
 
-const postComment = (comment) => ({
-    type: POST_COMMENT,
-    payload: comment
-}) 
+// const postComment = (comment) => ({
+//     type: POST_COMMENT,
+//     payload: comment
+// }) 
 const editComment = (comment) => ({
     type: EDIT_COMMENT,
     payload: comment
