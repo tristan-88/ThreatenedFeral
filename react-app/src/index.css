@@ -1,18 +1,21 @@
 /* TODO Add site wide styles */
-a{
-    cursor: pointer;
+a {
+  cursor: pointer;
 }
 
-
-
-a:hover{
-    color: unset !important;
+a:hover {
+  color: unset !important;
 }
 
-#root{
-    font-family: "Amatic", serif;
-    background-color: #334352;
-    color: white;
-    font-size: 1.2em;
+#root {
+  font-family: "Amatic", serif;
+  background-color: #334352;
+  color: white;
+  font-size: 1.2em;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}

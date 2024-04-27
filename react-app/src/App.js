@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { BrowserRouter, Route, Switch} from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm/SignUpForm";
 import NavBar from "./components/NavBar/NavBar";
@@ -36,29 +36,31 @@ function App() {
 
 	return (
 		<BrowserRouter>
-			<NavBar />
-			<Switch>
-				<Route path="/login" exact={true}>
-					<LoginForm />
-				</Route>
-				<Route path="/sign-up" exact={true}>
-					<SignUpForm />
-				</Route>
-				<ProtectedRoute path="/users/:id" exact={true}>
-					<User />
-				</ProtectedRoute>
-				<Route path="/" exact={true}>
-					<SplashPage />
-				</Route>
-				<ProtectedRoute path="/main" exact={true}>
-					<MainPage />
-				</ProtectedRoute>
-				<ProtectedRoute path="/animals/:id" exact={true}>
-					<SingleAnimalPage />
-				</ProtectedRoute>
-			</Switch>
-			<Footer />
-		</BrowserRouter>
+  {/* Move NavBar outside of Switch */}
+  <NavBar />
+  <Switch>
+    <Route path="/" exact={true}>
+      <SplashPage />
+    </Route>
+    <Route path="/login" exact={true}>
+      <LoginForm />
+    </Route>
+    <Route path="/sign-up" exact={true}>
+      <SignUpForm />
+    </Route>
+    <ProtectedRoute path="/users/:id" exact={true}>
+      <User />
+    </ProtectedRoute>
+    <ProtectedRoute path="/main" exact={true}>
+      <MainPage />
+    </ProtectedRoute>
+    <ProtectedRoute path="/animals/:id" exact={true}>
+      <SingleAnimalPage />
+    </ProtectedRoute>
+  </Switch>
+  <Footer />
+</BrowserRouter>
+
 	);
 }
 

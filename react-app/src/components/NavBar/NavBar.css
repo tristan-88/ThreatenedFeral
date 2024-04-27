@@ -4,8 +4,8 @@
     margin-bottom: 20px;
     margin-left: 145px;
     margin-right: -75px; */
-    justify-content: center;
-    max-height: 300px;
+    justify-content: space-evenly;
+
     padding-top: 1em;
 }
 
@@ -40,7 +40,7 @@
 	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
 		-1px -1px 0 black;
     font-weight: bolder;
-   
+   margin: 0 4.5rem;
 }
 
 .user-button-div,
@@ -48,5 +48,5 @@
     align-self: center;
     /* margin-left: 0.65em;
     margin-right: 0.65em; */
-    padding: 0 10vw;
+    padding: 0 2rem;
 }

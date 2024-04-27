@@ -37,7 +37,8 @@ function MainPage() {
     } 
 
     return (
-			<div className="main-page-container">
+		<div className="main-page-container">
+			
 				<div className="page-title">
 					<h1 className="page-title">Endangered Species</h1>
 				</div>
@@ -52,12 +53,12 @@ function MainPage() {
 					<div className="animal-card-container" key={animal.id}>
 						{sessionUser.fav_anim[animal.id] && (
 							<div onClick={() => handleUnfavorite(animal)}>
-							<i className="far fa-heart"></i>
+							<i className="fas fa-heart"></i>
 							</div>
 						)}
 						{!sessionUser.fav_anim[animal.id] && (
 							<div onClick={() => handleFavorite(animal)}>
-								<i className="fas fa-heart"></i>
+								<i className="far fa-heart"></i>
 							</div>
 						)}
 						<NavLink to={`/animals/${animal.id}`}>

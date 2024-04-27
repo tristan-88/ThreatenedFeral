@@ -1,72 +1,71 @@
-.splash_container{
-
+.splash_container {
 }
 
-.react-player{
-    /* border: 50px solid aliceblue; */
-    box-shadow: 0 17px 9px -7px rgba(12, 12, 12, 0.35);
-    z-index: -1;
-    /* position:absolute;   */
-    display: flex;
-    margin: 75px;
+.react-player {
+  /* border: 50px solid aliceblue; */
+  box-shadow: 0 17px 9px -7px rgba(12, 12, 12, 0.35);
+  z-index: -1;
+  /* position:absolute;   */
+  display: flex;
+  margin: 75px;
 }
 
-.title{
-    font-weight: bolder;
-    font-size: 72px;
-    font-family: fantasy;
-     color: #FF7F11;
-    text-shadow: -1px 3px 3px #334352,
-				  3px 3px 3px #334352,
-				  3px -1px 0  #334352,
-				  -1px -1px 0  #334352; 
-      z-index: 1;
-      /* top:50px;
+.title {
+  font-weight: bolder;
+  font-size: 72px;
+  font-family: fantasy;
+  color: #ff7f11;
+  text-shadow: -1px 3px 3px #334352, 3px 3px 3px #334352, 3px -1px 0 #334352,
+    -1px -1px 0 #334352;
+  z-index: 1;
+  /* top:50px;
       left:50px; */
-      display: flex;
-      justify-self: center;
-      position: absolute;
-      /* bottom:575px; */
-    text-align: center;
-
+  display: flex;
+  justify-self: center;
+  position: absolute;
+  /* bottom:575px; */
+  text-align: center;
 }
 
-
-.player-div{
-     display: flex;
-     align-self: center;
+.player-div {
+  display: flex;
+  align-self: center;
 }
 
-.title-page{
-    display: flex;
-    justify-content: space-around;
-    /* height: 100%; */
-    width: 100%;
-    align-items: center;
-    margin: 25px;
+.title-page {
+  display: flex;
+  justify-content: space-around;
+  /* height: 100%; */
+  width: 100%;
+  align-items: center;
+  height: 100%;
 }
 
-.message-div{
-     font-size: xx-large;
-    text-decoration: none;
-    font-family: "Amatic", serif;
-    justify-self: center;
-    text-align: -webkit-center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1em;
+.message-div {
+  font-size: xx-large;
+  text-decoration: none;
+  font-family: "Amatic", serif;
+  justify-self: center;
+  text-align: -webkit-center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
 }
-.message-div:focus, :hover, :visited, :link, :active {
-        text-decoration: none;
-    }
+.message-div:focus,
+:hover,
+:visited,
+:link,
+:active {
+  text-decoration: none;
+}
 
-.active{
-    text-decoration: none;
+.active {
+  text-decoration: none;
 }
 
 .splash-login,
-.splash-signup{
- margin: 0 -4.7em;
- cursor: pointer;
+.splash-signup {
+  margin: 0 -0.7em;
+  cursor: pointer;
 }

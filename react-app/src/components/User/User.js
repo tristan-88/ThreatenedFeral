@@ -41,15 +41,17 @@ function User() {
       <div>
         <h2>USER</h2>
         <div>
-          <h3>USER AVATAR</h3>
-          <img src={sessionUser.avatar_url} alt="No avatar" className="user-avatar"/>
-				</div>
-				<div>
 					<strong>Username:</strong> {sessionUser.username}
 				</div>
 				<div>
 					<strong>Email:</strong> {sessionUser.email}
+        </div>
+    
+        <div>
+          <h3 style={{marginTop: "1.5rem"}}>USER AVATAR</h3>
+          <img src={sessionUser.avatar_url} alt="No avatar" className="user-avatar"/>
 				</div>
+			
       </div>
       <div className='favorite-container'>
         <h2>FAVORITE ANIMALS</h2>
