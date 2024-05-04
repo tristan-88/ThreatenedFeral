@@ -23,13 +23,15 @@ function App() {
 	useEffect(() => {
 		//useeffect - runs ones when component initially loads run the function inside. 
 		(async () => {
-			await dispatch(authenticate());
+      // await dispatch(authenticate());
+      dispatch(authenticate());
+
 			setLoaded(true);
 		})();
 	}, [dispatch]);
 	//dependency array every time something changes inside here the useeffect will run again 
 	if (!loaded) {
-		return null;
+		return <div>Loading...</div>;
 	}
 
 	

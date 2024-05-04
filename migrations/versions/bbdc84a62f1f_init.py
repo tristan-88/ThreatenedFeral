@@ -1,8 +1,8 @@
-"""empty message
+"""init
 
-Revision ID: 9ff9a3406c2f
+Revision ID: bbdc84a62f1f
 Revises: 
-Create Date: 2021-05-14 20:20:09.863401
+Create Date: 2024-05-02 23:41:20.464206
 
 """
 from alembic import op
@@ -10,11 +10,10 @@ import sqlalchemy as sa
 
 import os
 environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get('SCHEMA')
-
+SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
-revision = '9ff9a3406c2f'
+revision = 'bbdc84a62f1f'
 down_revision = None
 branch_labels = None
 depends_on = None

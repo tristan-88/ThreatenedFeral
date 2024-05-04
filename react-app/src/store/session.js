@@ -56,7 +56,7 @@ export const unfavoritingAnimal = (animalId) => async (dispatch) => {
 };
 
 export const authenticate = () => async (dispatch) => {
-    const response = await fetch('/api/auth/', {
+    const response = await fetch("/api/auth/", {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -67,7 +67,6 @@ export const authenticate = () => async (dispatch) => {
         return;
     }
     dispatch(setUser(data))
-    
 }
 
 
@@ -83,9 +82,12 @@ export const demoLogin = () => async (dispatch) => {
         }),
     })
     const data = await response.json()
-    dispatch(setUser(data));
-    return response
+    if (!data.errors) {
+       dispatch(setUser(data)); 
+    }
+    return data
 }
+
 
 export const login = (email, password) => async (dispatch) => {
     const response = await fetch('/api/auth/login', {
@@ -99,11 +101,10 @@ export const login = (email, password) => async (dispatch) => {
         })
     });
     const data = await response.json();
-    if (data.errors) {
-        return data;
+    if (!data.errors) {
+        dispatch(setUser(data));
     }
-    dispatch(setUser(data));
-    return {};
+    return data;
 }
 
 export const logout = () => async (dispatch) => {
